@@ -1,0 +1,82 @@
+.Difuminado {
+    display: none;
+    /* background: #892CE211; */
+    /* background: linear-gradient(180deg, #892CE211, #ABF1DB97); */
+    height: 100px;
+
+}
+
+.ContainerProceso {
+    /* background-color: #abf1db97; */
+    padding-top: 100px;
+
+}
+
+.TitleProceso {
+    font-size: 1.3rem;
+    /* color: #892be2fb; */
+    width: 80%;
+    font-weight: 700;
+    margin: auto;
+    text-align: center;
+    border-bottom: 2px solid #6a0bc3fb;
+    padding-bottom: 10px;
+    display: flex;
+}
+
+.TitleProceso h2 {
+    margin: auto;
+}
+
+#LampIcon {
+    font-size: 50px;
+    color: #771bcdfb;
+    margin-bottom: -10px;
+
+}
+
+.ContainerTiposProcesos {
+    display: flex;
+    margin-top: 20px;
+}
+
+.Procesos {
+    width: 33%;
+    padding: 30px;
+}
+
+
+
+.ContainerTextProceso h3 {
+    color: #892be2fb;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.ContainerTextProceso {
+    margin-top: 10px;
+    box-shadow: 2px 13px 20px 12px rgba(0, 0, 0, 0.123);
+    padding: 20px;
+    height: 320px;
+    align-items: center;
+}
+
+.ContainerTextProceso p {
+    font-size: 1.1rem;
+}
+
+.ContainerTextProceso ul {
+    margin-top: 10px;
+}
+
+.ContainerTextProceso ul li {
+    list-style: none;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.IconParrafo {
+
+    font-size: 25px;
+    margin-right: 10px;
+}
