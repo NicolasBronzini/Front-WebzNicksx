@@ -1,10 +1,8 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from "./pages/Home"
 import NotFound from "./pages/NotFound/NotFound"
-
-// import Newdevs from './pages/NewDevs/newdevs';
 import Peticiones from './pages/Peticiones/peticiones';
-
+// import Newdevs from './pages/NewDevs/newdevs';
 function App() {
   return (
     <Router>
@@ -15,7 +13,7 @@ function App() {
         <Route path="/trabaja-con-nosotros" element={<Peticiones />} />
       </Routes>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;
