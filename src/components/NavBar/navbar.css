@@ -33,14 +33,14 @@
     color: black;
 }
 
-a {
+link {
     text-decoration: none;
     font-size: 1.2rem;
     color: black;
     font-weight: 550;
 }
 
-a:hover {
+link:hover {
     color: blueviolet;
 }
 
