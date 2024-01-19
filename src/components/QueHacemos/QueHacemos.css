@@ -36,17 +36,24 @@
 }
 
 .ContainerTiposProcesos {
-    display: flex;
-    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    grid-auto-rows: minmax(100px, auto);
+    max-width: 1550px; /* Ancho máximo antes de cambiar el diseño */
+    margin: 0 auto;
+  overflow: hidden;
+  
 }
-
 .Procesos {
-    width: 33%;
-    padding: 30px;
+    padding:  20px;
+    border-radius: 8px;
+    overflow: hidden; /* Oculta el contenido que exceda el alto */
+    display: flex;
+    flex-direction: column;
+
+
 }
-
-
-
 .ContainerTextProceso h3 {
     color: #892be2fb;
     font-size: 1.5rem;
@@ -54,13 +61,15 @@
 }
 
 .ContainerTextProceso {
+    flex: 1; /* Permite que este contenedor crezca en tamaño automáticamente */
     margin-top: 10px;
-    box-shadow: 2px 13px 20px 12px rgba(0, 0, 0, 0.123);
+    box-shadow: 5px 5px 15px 15px rgba(0, 0, 0, 0.027);
     padding: 20px;
-
-    height: 340px;
-
+    border-radius: 3%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+  
 }
 
 .ContainerTextProceso p {
@@ -81,4 +90,17 @@
 
     font-size: 25px;
     margin-right: 10px;
+}
+@media (max-width: 1222px) {
+    .ContainerTiposProcesos {
+        grid-template-columns: 1fr; /* Cambia a una columna */
+        margin: 0px 100px;
+    }
+    
+}
+@media (max-width: 700px) {
+    .ContainerTiposProcesos {   
+        margin: 0px 30px;
+    }
+    
 }

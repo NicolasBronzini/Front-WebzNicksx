@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poltawski+Nowy&display=swap');
 
 .ContainerHeader {
-
-
     padding-bottom: 100px;
+    z-index: 1000; /* Ajusta el valor según sea necesario */
 }
 
 .containerHome {
@@ -55,4 +54,28 @@
 .ContainerImgHome img {
     width: 100%;
     border-radius: 0px;
+}
+@media (max-width: 1220px){
+    .containerHome{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .ContainerTextHome {
+        width: 100%;
+       
+    }
+    .ContainerImgHome{
+        width: 60%;
+    }
+}
+@media (max-width: 767px) {
+    .ContainerHeader{
+        margin-top: 1450px;
+    }
+    .ContainerImgHome{
+        width:100%;
+    }
+  
+    
 }
