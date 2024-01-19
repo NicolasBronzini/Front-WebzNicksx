@@ -10,13 +10,13 @@ function Navbar() {
 
       <ul className="navbar__links">
         <li>
-          <Link to="/">Inicio</Link>
+          <Link to="/"  className="link">Inicio</Link>
         </li>
         <li>
-          <Link to="/presenta-tu-proyecto">Presenta tu proyecto <span>*</span></Link>
+          <Link to="/presenta-tu-proyecto"  className="link">Presenta tu proyecto <span>*</span></Link>
         </li>
         <li>
-          <Link to="/trabaja-con-nosotros">Trabaja con nosotros <span>*</span></Link>
+          <Link to="/trabaja-con-nosotros"  className="link">Trabaja con nosotros <span>*</span></Link>
         </li>
       </ul>
     </nav>
