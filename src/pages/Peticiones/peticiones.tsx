@@ -1,5 +1,3 @@
-
-import Navbar from '../../components/NavBar/NavBar'
 import PresPeticion from '../../components/PresPeticion/PresPeticion'
 
 
