@@ -6,7 +6,7 @@ import PresPeticion from '../../components/PresPeticion/PresPeticion'
 const Peticiones = () => {
     return (
         <>
-            <Navbar />
+        
             <PresPeticion />
         </>
     )

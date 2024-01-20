@@ -18,6 +18,7 @@
     margin-top: 180px;
     position: relative;
     top: -130px;
+    padding-left: 200px;
 }
 
 .left-section h1 {
@@ -111,4 +112,14 @@ img {
     background-image: url("../../assets/img/icons/icon3");
     height: 100px;
     width: 100px;
+}
+@media (max-width: 1230px) {
+.right-section{
+    display: none;
+}
+.left-section{
+    width: 100%;
+    padding: 10px 50px;
+}
+
 }

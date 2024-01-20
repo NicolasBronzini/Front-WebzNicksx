@@ -7,7 +7,7 @@ import { BsFillGearFill } from 'react-icons/bs';
 const PresPeticion = () => {
     return (
         <>
-            <div className="container">
+            <div className="container" id='Proyectos'>
                 <div className="left-section">
                     <h1>Presenta tu proyecto</h1>
                     <p>¿Tienes una idea para un proyecto web? Cuéntanos sobre él y nosotros te ayudaremos a hacerlo realidad. Somos expertos en desarrollo web y podemos ofrecerte soluciones personalizadas para tus necesidades.

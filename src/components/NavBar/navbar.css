@@ -48,3 +48,70 @@ a span {
     color: blueviolet;
     font-weight: 700;
 }
+
+
+/* Añadir estilos para el ícono de menú hamburguesa *//* Ajustes para el ícono de menú hamburguesa y cruz *//* Ajustes para el ícono de menú hamburguesa y cruz */
+/* Ajustes para el ícono de menú hamburguesa y cruz */
+.navbar__menu-toggle {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 20px; /* Espaciado entre el ícono y los enlaces */
+  }
+  
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: black; /* Color de las barras del ícono */
+    margin: 6px 0;
+    transition: transform 0.3s ease; /* Transición para girar las barras en forma de cruz */
+  }
+  
+  /* Rotación de las barras para formar una cruz cuando el menú está abierto */
+  .bar.open {
+    transform: rotate(-45deg);
+  }
+  
+  .bar::before,
+  .bar::after {
+    content: '';
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 6px 0;
+    transition: transform 0.3s ease; /* Transición para girar las barras en forma de cruz */
+  }
+  
+  /* Rotación de las barras adicionales para formar una cruz cuando el menú está abierto */
+  .bar.open::before {
+    transform: rotate(45deg) translate(-6px, -6px);
+  }
+  
+  .bar.open::after {
+    transform: rotate(45deg) translate(6px, -6px);
+  }
+  
+  /* Ajustes para la lista de enlaces en pantallas pequeñas */
+  @media (max-width: 700px) {
+    .navbar__links {
+      display: none;
+      flex-direction: column;
+      align-items: flex-start; /* Alinea los enlaces a la izquierda */
+      width: 100%;
+      position: absolute;
+      top: 85px; /* Ajusta según la altura de tu barra de navegación */
+      left: 0;
+      background-color: #fff; /* Color de fondo del menú desplegable */
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra del menú desplegable */
+    }
+  
+    .navbar.open .navbar__links {
+      display: flex;
+    }
+  
+    .navbar__menu-toggle {
+      display: flex;
+      margin-top: 20PX;
+    }
+  }
+  

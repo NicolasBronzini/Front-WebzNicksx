@@ -70,9 +70,7 @@
     }
 }
 @media (max-width: 767px) {
-    .ContainerHeader{
-        margin-top: 1450px;
-    }
+    
     .ContainerImgHome{
         width:100%;
     }
