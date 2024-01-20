@@ -39,6 +39,9 @@
     top: 70px;
     border-radius: 500px 0px 0px 500px;
     padding: 30px 0px 30px 30px;
+    box-shadow: -2px -1px 24px -5px rgba(0,0,0,0.37);
+    -webkit-box-shadow: -2px -1px 24px -5px rgba(0,0,0,0.37);
+    -moz-box-shadow: -2px -1px 24px -5px rgba(0,0,0,0.37);
 }
 
 

@@ -63,7 +63,9 @@
 .ContainerTextProceso {
     flex: 1; /* Permite que este contenedor crezca en tamaño automáticamente */
     margin-top: 10px;
-    box-shadow: 5px 5px 15px 15px rgba(0, 0, 0, 0.027);
+    box-shadow: -2px -1px 14px -5px rgba(0,0,0,0.37);
+    -webkit-box-shadow: -2px -1px 14px -5px rgba(0,0,0,0.37);
+    -moz-box-shadow: -2px -1px 14px -5px rgba(0,0,0,0.37);
     padding: 20px;
     border-radius: 3%;
     display: flex;
