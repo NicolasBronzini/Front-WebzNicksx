@@ -126,13 +126,11 @@ img {
 
 .left-section {
     width: 100%;
-    /* padding: 10px 50px; */
+    padding: 0px; 
 }
 }
 @media (max-width: 700px) {
-   .left-section {
-     padding: 0px; 
-}
+ 
 .ContainerCartMini h5{
     font-size: 0.9rem;
 }
