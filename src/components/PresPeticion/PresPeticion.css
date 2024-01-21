@@ -88,6 +88,10 @@ img {
     justify-content: center;
     margin-bottom: 10px;
 }
+.ContainerCartMini span svg{
+    margin: auto;
+}
+
 
 .IconCartMini {
     margin-right: 50px;
@@ -125,4 +129,19 @@ img {
     padding: 10px 50px;
 }
 
+}
+.left-section {
+    width: 100%;
+    /* padding: 10px 50px; */
+}
+@media (max-width: 700px) {
+   .left-section {
+     padding: 0px; 
+}
+.ContainerCartMini h5{
+    font-size: 0.9rem;
+}
+.ContainerCartMini p {
+   display: none;
+}
 }
