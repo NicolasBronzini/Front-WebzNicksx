@@ -88,9 +88,7 @@ img {
     justify-content: center;
     margin-bottom: 10px;
 }
-.ContainerCartMini span svg{
-    margin: auto;
-}
+
 
 
 .IconCartMini {
@@ -143,5 +141,8 @@ img {
 }
 .ContainerCartMini p {
    display: none;
+}
+.ContainerCartMini span svg{
+    margin: auto;
 }
 }
