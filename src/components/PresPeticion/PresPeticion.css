@@ -122,15 +122,12 @@ img {
 .right-section{
     display: none;
 }
-.left-section{
-    width: 100%;
-    padding: 10px 50px;
-}
 
-}
+
 .left-section {
     width: 100%;
     /* padding: 10px 50px; */
+}
 }
 @media (max-width: 700px) {
    .left-section {
