@@ -1,0 +1,83 @@
+.formulario-container {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+}
+
+
+
+.formulario {
+  flex: 1.7;
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: 0 2px 20px #892be21e; /* Sombra más suave */
+  background-color: #ffffff2d;
+}
+
+
+.formulario h2 {
+  margin-top: 0;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 95%;
+  padding: 8px;
+  border: 1px solid #892be2;
+  border-radius: 4px;
+  resize: none; /* Evita que el textarea sea redimensionable manualmente */
+}
+
+.form-group textarea {
+  height: 100px;
+}
+
+.btn_form {
+  width: 100%;
+  padding: 10px;
+  background-color: #892be2fb;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn_form:hover {
+  background-color: #6c1aa3;
+}
+.explicacion {
+  flex: 0.8;
+  margin-right: 20px;
+  padding: 20px;
+  border-radius: 30px;
+}
+
+.explicacion h2 {
+  margin-top: 30px;
+  margin-bottom: 50px;
+  color: #892be2;
+}
+
+
+.explicacion p {
+
+  font-weight: 600;
+}
+
+.iconsWebs {
+  width: 50px; /* Ancho de la imagen */
+  height: auto; /* Altura automática para mantener la proporción */
+  margin-bottom: 10px; /* Espaciado inferior */
+}

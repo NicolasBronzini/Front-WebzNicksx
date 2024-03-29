@@ -35,7 +35,7 @@ const PresPeticion = () => {
                 <div className="right-section">
                     <div className="image-wrapper">
                         <div className='ContainerImg'>
-                            <img src={ImgEquipo} alt="Trabajo en equipo" />
+                            <img src={ImgEquipo} alt="Trabajo en equipo" className='imgEquipo' />
                         </div>
                     </div>
                 </div>
