@@ -9,7 +9,7 @@ import TablePrice from '../../components/TablePrice/TablePrice'
 const Peticiones = () => {
     return (
         <>
-            <Navbar />
+            <Navbar/>
             <PresPeticion />
             <TablePrice/>
             <ProyectForm/>

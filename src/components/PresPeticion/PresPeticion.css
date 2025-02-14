@@ -18,6 +18,7 @@
     margin-top: 180px;
     position: relative;
     top: -130px;
+    padding-left: 200px;
 }
 
 .left-section h1 {
@@ -38,10 +39,13 @@
     top: 70px;
     border-radius: 500px 0px 0px 500px;
     padding: 30px 0px 30px 30px;
+    box-shadow: -2px -1px 24px -5px rgba(0,0,0,0.37);
+    -webkit-box-shadow: -2px -1px 24px -5px rgba(0,0,0,0.37);
+    -moz-box-shadow: -2px -1px 24px -5px rgba(0,0,0,0.37);
 }
 
 
-img {
+.imgEquipo{
     border-radius: 500px 0px 0px 500px;
     width: 700px;
     position: relative;
@@ -85,6 +89,8 @@ img {
     margin-bottom: 10px;
 }
 
+
+
 .IconCartMini {
     margin-right: 50px;
     padding: 10px;
@@ -111,4 +117,27 @@ img {
     background-image: url("../../assets/img/icons/icon3");
     height: 100px;
     width: 100px;
+}
+@media (max-width: 1230px) {
+.right-section{
+    display: none;
+}
+
+
+.left-section {
+    width: 100%;
+    padding: 0px; 
+}
+}
+@media (max-width: 700px) {
+ 
+.ContainerCartMini h5{
+    font-size: 0.9rem;
+}
+.ContainerCartMini p {
+   display: none;
+}
+.ContainerCartMini span svg{
+    margin: auto;
+}
 }

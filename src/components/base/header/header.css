@@ -4,6 +4,7 @@
 
 overflow: hidden;
     padding-bottom: 100px;
+    z-index: 1000; /* Ajusta el valor según sea necesario */
 }
 
 .containerHome {
