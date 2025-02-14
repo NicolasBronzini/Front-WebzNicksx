@@ -45,8 +45,6 @@
     padding: 30px;
 }
 
-
-
 .ContainerTextProceso h3 {
     color: #892be2fb;
     font-size: 1.5rem;
@@ -55,9 +53,9 @@
 
 .ContainerTextProceso {
     margin-top: 10px;
-    box-shadow: 2px 13px 20px 12px rgba(0, 0, 0, 0.123);
+  
     padding: 20px;
-    height: 320px;
+    height:auto;
     align-items: center;
 }
 
@@ -78,5 +76,39 @@
 .IconParrafo {
 
     font-size: 25px;
-    margin-right: 10px;
+    margin-right: 15px;
+}
+@media screen and (max-width: 1045px) {
+    .Procesos {
+        padding: 10px;
+    }
+    .ContainerTextProceso{
+        font-size: 1rem;
+    }
+    .ContainerTextProceso p{
+        display: none;
+    }
+
+    .IconParrafo{
+        font-size: 20px;
+    
+    }
+}
+@media screen and (max-width: 750px) {
+    .Procesos {
+        width: 100%;
+        padding:10px;
+    } 
+    .ContainerTiposProcesos {
+        display: block;
+        width: 100%;
+        padding: 0px;
+    }
+    .ContainerTextProceso{
+        width: 100%;
+        padding: 0px;
+    }
+    .ContainerTextProceso h3{
+        padding-left: 20px;
+    }
 }

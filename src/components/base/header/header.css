@@ -2,15 +2,16 @@
 
 .ContainerHeader {
 
-
+overflow: hidden;
     padding-bottom: 100px;
 }
 
 .containerHome {
-    width: 90%;
+    width: 100%;
     margin: auto;
     display: flex;
-    margin-top: 100px;
+    margin-top: 70px;
+    padding: 20px;
 }
 
 /* text */
@@ -55,4 +56,27 @@
 .ContainerImgHome img {
     width: 100%;
     border-radius: 0px;
+}
+
+.ListaBeneficios{
+    margin-top: 20px;
+}
+.ListaBeneficios li {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 800px) {
+    .containerHome{
+        display: block;
+    }
+    .ContainerTextHome{
+        width: 100%;
+    }
+    .ContainerTextHome p{
+        padding-right: 30px;
+    }
+    .ContainerImgHome{
+        width: 100%;
+    }
 }
