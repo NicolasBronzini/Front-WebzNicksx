@@ -1,15 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Poltawski+Nowy&display=swap');
 
 .ContainerHeader {
+
+overflow: hidden;
     padding-bottom: 100px;
     z-index: 1000; /* Ajusta el valor según sea necesario */
 }
 
 .containerHome {
-    width: 90%;
+    width: 100%;
     margin: auto;
     display: flex;
-    margin-top: 100px;
+    margin-top: 70px;
+    padding: 20px;
 }
 
 /* text */
@@ -55,25 +58,26 @@
     width: 100%;
     border-radius: 0px;
 }
-@media (max-width: 1220px){
-    .containerHome{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .ContainerTextHome {
-        width: 100%;
-       
-    }
-    .ContainerImgHome{
-        width: 60%;
-    }
+
+.ListaBeneficios{
+    margin-top: 20px;
 }
-@media (max-width: 767px) {
-    
-    .ContainerImgHome{
-        width:100%;
+.ListaBeneficios li {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 800px) {
+    .containerHome{
+        display: block;
     }
-  
-    
+    .ContainerTextHome{
+        width: 100%;
+    }
+    .ContainerTextHome p{
+        padding-right: 30px;
+    }
+    .ContainerImgHome{
+        width: 100%;
+    }
 }

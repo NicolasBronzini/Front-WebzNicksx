@@ -36,24 +36,15 @@
 }
 
 .ContainerTiposProcesos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    grid-auto-rows: minmax(100px, auto);
-    max-width: 1550px; /* Ancho máximo antes de cambiar el diseño */
-    margin: 0 auto;
-  overflow: hidden;
-  
-}
-.Procesos {
-    padding:  20px;
-    border-radius: 8px;
-    overflow: hidden; /* Oculta el contenido que exceda el alto */
     display: flex;
-    flex-direction: column;
-
-
+    margin-top: 20px;
 }
+
+.Procesos {
+    width: 33%;
+    padding: 30px;
+}
+
 .ContainerTextProceso h3 {
     color: #892be2fb;
     font-size: 1.5rem;
@@ -61,17 +52,11 @@
 }
 
 .ContainerTextProceso {
-    flex: 1; /* Permite que este contenedor crezca en tamaño automáticamente */
     margin-top: 10px;
-    box-shadow: -2px -1px 14px -5px rgba(0,0,0,0.37);
-    -webkit-box-shadow: -2px -1px 14px -5px rgba(0,0,0,0.37);
-    -moz-box-shadow: -2px -1px 14px -5px rgba(0,0,0,0.37);
-    padding: 20px;
-    border-radius: 3%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   
+    padding: 20px;
+    height:auto;
+    align-items: center;
 }
 
 .ContainerTextProceso p {
@@ -91,18 +76,39 @@
 .IconParrafo {
 
     font-size: 25px;
-    margin-right: 10px;
+    margin-right: 15px;
 }
-@media (max-width: 1222px) {
+@media screen and (max-width: 1045px) {
+    .Procesos {
+        padding: 10px;
+    }
+    .ContainerTextProceso{
+        font-size: 1rem;
+    }
+    .ContainerTextProceso p{
+        display: none;
+    }
+
+    .IconParrafo{
+        font-size: 20px;
+    
+    }
+}
+@media screen and (max-width: 750px) {
+    .Procesos {
+        width: 100%;
+        padding:10px;
+    } 
     .ContainerTiposProcesos {
-        grid-template-columns: 1fr; /* Cambia a una columna */
-        margin: 0px 100px;
+        display: block;
+        width: 100%;
+        padding: 0px;
     }
-    
-}
-@media (max-width: 700px) {
-    .ContainerTiposProcesos {   
-        margin: 0px 30px;
+    .ContainerTextProceso{
+        width: 100%;
+        padding: 0px;
     }
-    
+    .ContainerTextProceso h3{
+        padding-left: 20px;
+    }
 }

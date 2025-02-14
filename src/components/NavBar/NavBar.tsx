@@ -1,49 +1,40 @@
-import  { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './navbar.css';
+import { useState } from "react";
+import "./navbar.css";
 
 function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
-
-  const scrollToSection = (id:any) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    }
+    setIsOpen(!isOpen);
   };
 
   return (
-    <nav className={`navbar ${menuOpen ? 'open' : ''}`}>
+    <nav className="navbar">
       <div className="navbar__logo">
-        <div className='ImgLogo'></div>
+        <div className="ImgLogo"></div>
       </div>
 
-      <div className="navbar__menu-toggle" onClick={toggleMenu}>
-        <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
+      {/* Ícono de menú hamburguesa */}
+      <div className={`navbar__toggle ${isOpen ? "open" : ""}`} onClick={toggleMenu}>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
 
-      <ul className="navbar__links">
+      <ul className={`navbar__links ${isOpen ? "active" : ""}`}>
         <li>
-          <Link to="/" className="link">Inicio</Link>
+          <a href="/">Inicio</a>
         </li>
         <li>
-          <Link to="/" onClick={() => scrollToSection('Proyectos')} className="link">Presenta tu proyecto <span>*</span></Link>
+          <a href="/presenta-tu-proyecto">Presenta tu proyecto <span>*</span></a>
         </li>
         <li>
-          <Link to="/" onClick={() => scrollToSection('Contacto')} className="link">Contacto <span>*</span></Link>
+          <a href="/trabaja-con-nosotros">Trabaja con nosotros <span>*</span></a>
         </li>
       </ul>
     </nav>
   );
 }
+
 
 export default Navbar;

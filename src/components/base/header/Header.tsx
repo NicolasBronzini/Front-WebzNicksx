@@ -13,9 +13,21 @@ const Header = () => {
                 <NavBar />
                 <div className="containerHome">
                     <div className="ContainerTextHome">
-                        <h1>Impulsa tu negocio al siguiente nivel</h1>
-                        <p>En <span>WebzNick</span> nos dedicamos a crear soluciones digitales personalizadas que impulsan tu negocio en línea. Ya sea que necesites una página web, una tienda en línea o una aplicación móvil, nuestro equipo de expertos trabajará contigo para entender tus necesidades y crear una solución a medida que se adapte a tus objetivos y presupuesto. ¡Contáctanos para saber cómo podemos ayudarte a crecer en línea!</p>
-                        <button className="BtnContact" >Contactanos <FaRegPaperPlane /></button>
+                        <h1>Impulsa tu negocio con una <span className="text-blue-500">web profesional</span> 🚀</h1>
+                        <p className="text-lg text-gray-300 mb-6">
+                            En <span className="font-semibold text-white">WebzNick</span>, creamos 
+                            <span className="text-blue-400"> páginas web, Ecommerce, integraciones con APIs y servicios </span> 
+                            diseñadas a la medida de tu negocio para que vendas más y crezcas rápido.
+                        </p>
+
+                        {/* Lista de Beneficios */}
+                        <ul className="ListaBeneficios">
+                            <li>✅ <span className="text-white font-semibold">Diseño moderno y funcional</span></li>
+                            <li>✅ <span className="text-white font-semibold">Optimizado para crecer tu negocio</span></li>
+                            <li>✅ <span className="text-white font-semibold">Ajustado a tu presupuesto y necesidades</span></li>
+                        </ul>
+
+                        <button className="BtnContact" > Hablemos Ahora <FaRegPaperPlane /></button>
                     </div>
                     <div className="ContainerImgHome">
                         <img src={iconPC} alt="Developer Tools" />

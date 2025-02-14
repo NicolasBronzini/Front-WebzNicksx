@@ -1,118 +1,109 @@
+/* Contenedor principal */
 .navbar {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     height: 85px;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.04);
-
-}
-
-.navbar__logo {
-    overflow-y: hidden;
-}
-
-.ImgLogo {
+    padding: 0 20px;
+    position: relative;
+  }
+  
+  .navbar__logo .ImgLogo {
     background-image: url("../../assets/img/logos/logo.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    width: 200px;
-    height: 100px;
-
-}
-
-.navbar__links {
+    width: 150px;
+    height: 60px;
+  }
+  
+  /* Enlaces */
+  .navbar__links {
     display: flex;
     align-items: center;
-    overflow: hidden;
-}
-
-.navbar__links li {
+  }
+  
+  .navbar__links li {
     list-style: none;
-    margin: 20px;
-
-    color: black;
-}
-
-.link {
+    margin: 0 15px;
+  }
+  
+  .navbar__links a {
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: black;
     font-weight: 550;
   }
   
-  .link:hover {
+  .navbar__links a:hover {
     color: blueviolet;
   }
-
-a span {
+  
+  .navbar__links a span {
     color: blueviolet;
     font-weight: 700;
-}
-
-
-/* Añadir estilos para el ícono de menú hamburguesa *//* Ajustes para el ícono de menú hamburguesa y cruz *//* Ajustes para el ícono de menú hamburguesa y cruz */
-/* Ajustes para el ícono de menú hamburguesa y cruz */
-.navbar__menu-toggle {
+  }
+  
+  /* Estilos del menú hamburguesa */
+  .navbar__toggle {
     display: none;
-    
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
   }
   
-  .bar {
-    width: 25px;
+  .navbar__toggle span {
+    display: block;
     height: 3px;
-    background-color: black; /* Color de las barras del ícono */
-    margin: 6px 0;
-    transition: transform 0.3s ease; /* Transición para girar las barras en forma de cruz */
+    background: black;
+    border-radius: 2px;
+    transition: 0.3s;
   }
   
-  /* Rotación de las barras para formar una cruz cuando el menú está abierto */
-  .bar.open {
-    transform: rotate(-45deg);
+  /* Animación del ícono */
+  .navbar__toggle.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
   }
   
-  .bar::before,
-  .bar::after {
-    content: '';
-    width: 25px;
-    height: 3px;
-    background-color: black;
-    margin: 6px 0;
-    transition: transform 0.3s ease; /* Transición para girar las barras en forma de cruz */
+  .navbar__toggle.open span:nth-child(2) {
+    opacity: 0;
   }
   
-  /* Rotación de las barras adicionales para formar una cruz cuando el menú está abierto */
-  .bar.open::before {
-    transform: rotate(45deg) translate(-6px, -6px);
+  .navbar__toggle.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
   }
   
-  .bar.open::after {
-    transform: rotate(45deg) translate(6px, -6px);
-  }
-  
-  /* Ajustes para la lista de enlaces en pantallas pequeñas */
-  @media (max-width: 700px) {
-    .navbar__links {
-      display: none;
-      flex-direction: column;
-      align-items: flex-start; /* Alinea los enlaces a la izquierda */
-      width: 100%;
-      position: absolute;
-      top: 85px; /* Ajusta según la altura de tu barra de navegación */
-      left: 0;
-      background-color: #fff; /* Color de fondo del menú desplegable */
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra del menú desplegable */
-    }
-  
-    .navbar.open .navbar__links {
+  /* Responsive */
+  @media (max-width: 768px) {
+    .navbar__toggle {
       display: flex;
     }
   
-    .navbar__menu-toggle {
-        display: flex;
-        flex-direction: column;
-        cursor: pointer;
-        margin-top: 20px; /* Espaciado entre el ícono y los enlaces */
-        margin-right: 30px;
+    .navbar__links {
+      position: absolute;
+      top: 100px;
+      right: 0;
+      background: white;
+      width: 100%;
+      height: auto;
+      flex-direction: column;
+      align-items: end;
+      padding-right: 20px;
+      justify-content: center;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      z-index: 1;
+    }
+  
+    .navbar__links.active {
+      transform: translateX(0);
+    }
+  
+    .navbar__links li {
+      margin: 20px 0;
     }
   }
   
