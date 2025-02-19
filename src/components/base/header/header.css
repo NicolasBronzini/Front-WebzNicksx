@@ -43,8 +43,20 @@ overflow: hidden;
     border-radius: 5px;
     margin-top: 50px;
     font-size: 1.1rem;
-}
-
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Animaciones de transformación y color */
+  }
+  
+  .BtnContact:hover {
+    transform: scale(1.1); /* Aumentar el tamaño del botón */
+    background-color: #7a1fd2; /* Cambio de color al pasar el ratón */
+  }
+  
+  .BtnContact:active {
+    transform: scale(0.98); /* Al presionar el botón, el tamaño se reduce un poco */
+    background-color: #6e17bc; /* Cambio de color al presionar */
+  }
+  
 
 
 /* img */
@@ -61,6 +73,7 @@ overflow: hidden;
 
 .ListaBeneficios{
     margin-top: 20px;
+    margin-left: 10px;
 }
 .ListaBeneficios li {
     font-size: 1.2rem;
