@@ -13,7 +13,7 @@ const Footer = () => {
        
 
         <div className="footer-section">
-          <h3 className="footer-subtitle">Síguenos</h3>
+          {/* <h3 className="footer-subtitle">Síguenos</h3>
           <div className="footer-socials">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="footer-icon">
               <i className="fab fa-facebook-f"></i>
@@ -27,7 +27,7 @@ const Footer = () => {
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="footer-icon">
               <i className="fab fa-instagram"></i>
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
 

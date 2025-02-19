@@ -1,64 +1,100 @@
-import { useState } from 'react';
-import './FormProyects.css'; // Archivo de estilos
-// import iconWebs from '../../assets/img/Icons/webicons.png'
-const FormProyectos = () => {
-  // Estados para almacenar los valores de los campos del formulario
-  const [nombre, setNombre] = useState('');
-  const [email, setEmail] = useState('');
-  const [idea, setIdea] = useState('');
+import { useState } from "react";
+import { motion } from "framer-motion"; // Importamos Framer Motion
+import "./FormProyects.css"; // Archivo de estilos
 
-  // Función para manejar el envío del formulario
-  const handleSubmit = (event:any) => {
+const FormProyectos = () => {
+  const [formData, setFormData] = useState({ nombre: "", email: "", idea: "", category:"" });
+  const [isSending, setIsSending] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleChange = (e : any) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
-    // Aquí puedes enviar los datos a tu backend o hacer lo que necesites con ellos
-    console.log('Datos enviados:', { nombre, email, idea });
-    // Puedes añadir aquí la lógica para enviar los datos a tu servidor
+    setIsSending(true);
+
+    // Simulación de envío (reemplazar con lógica real)
+    setTimeout(() => {
+      setIsSubmitted(true);
+      setIsSending(false);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({ nombre: "", email: "", idea: "", category:"" });
+      }, 1500);
+    }, 2000);
   };
 
   return (
     <div className="formulario-container">
-   
-    <div className="formulario">
-      <h2>Envíanos tu idea de proyecto</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="nombre">Nombre:</label>
-          <input
-            type="text"
-            id="nombre"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="idea">Tu idea de proyecto:</label>
-          <textarea
-            id="idea"
-            value={idea}
-            onChange={(e) => setIdea(e.target.value)}
-            required
-          ></textarea>
-        </div>
-        <button type="submit" className='btn_form'>Enviar</button>
-      </form>
+      <div className="formulario">
+        <h2>Envíanos tu idea de proyecto</h2>
+        {isSubmitted ? (
+          <motion.div
+            className="success-message"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            🎉 ¡Mensaje enviado correctamente!
+          </motion.div>
+        ) : (
+          <motion.form
+            onSubmit={handleSubmit}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <div className="form-group">
+              <label htmlFor="nombre">Nombre:</label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                value={formData.nombre}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="idea">Tu idea de proyecto:</label>
+              <textarea
+                id="idea"
+                name="idea"
+                value={formData.idea}
+                onChange={handleChange}
+                required
+              ></textarea>
+            </div>
+            <motion.button
+              type="submit"
+              className="btn_form"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              disabled={isSending}
+            >
+              {isSending ? "Enviando..." : "Enviar"}
+            </motion.button>
+          </motion.form>
+        )}
+      </div>
+      <div className="explicacion">
+        <h2>¿Tienes una idea de proyecto?</h2>
+        <p>¡Nos encantaría escucharla! Por favor, completa el formulario y nos pondremos en contacto contigo lo antes posible.</p>
+      </div>
     </div>
-    <div className="explicacion">
-      <h2>¿Tienes una idea de proyecto?</h2>
-     
-      <p>¡Nos encantaría escucharla! Por favor, completa el formulario a continuación y nos pondremos en contacto contigo lo antes posible para discutir cómo podemos ayudarte a convertir tu idea en realidad.</p>
-    </div>
-  </div>
   );
 };
 

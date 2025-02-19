@@ -28,9 +28,9 @@ function Navbar() {
         <li>
           <a href="/presenta-tu-proyecto">Presenta tu proyecto <span>*</span></a>
         </li>
-        <li>
+        {/* <li>
           <a href="/trabaja-con-nosotros">Trabaja con nosotros <span>*</span></a>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );

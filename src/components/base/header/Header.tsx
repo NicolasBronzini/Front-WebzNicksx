@@ -7,6 +7,14 @@ import IconAvion from "../../../assets/img/AvionPapel.svg"
 import { FaRegPaperPlane } from 'react-icons/fa';
 
 const Header = () => {
+    
+    const handleScroll = () => {
+        // Redirige al formulario dentro de la página
+        const element = document.getElementById("formulario"); // ID del contenedor al que hacer scroll
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" }); // Scroll suave hacia el contenedor
+        }
+      };
     return (
         <>
             <div className="ContainerHeader">
@@ -27,7 +35,7 @@ const Header = () => {
                             <li>✅ <span className="text-white font-semibold">Ajustado a tu presupuesto y necesidades</span></li>
                         </ul>
 
-                        <button className="BtnContact" > Hablemos Ahora <FaRegPaperPlane /></button>
+                        <button className="BtnContact" onClick={handleScroll} > Hablemos Ahora <FaRegPaperPlane /></button>
                     </div>
                     <div className="ContainerImgHome">
                         <img src={iconPC} alt="Developer Tools" />
