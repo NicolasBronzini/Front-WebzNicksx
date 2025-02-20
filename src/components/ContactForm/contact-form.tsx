@@ -49,6 +49,7 @@ const ContactForm = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
+          aria-live="polite"
         >
           🎉 ¡Mensaje enviado correctamente!
         </motion.div>
@@ -60,7 +61,8 @@ const ContactForm = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0 }}
         >
-            <h2 className="contact-form-heading">¿Tienes dudas? ¡Hablemos!</h2>
+          <h2 className="contact-form-heading">¿Tienes dudas? ¡Hablemos!</h2>
+          
           {/* Nombre */}
           <div className="form-group">
             <label htmlFor="name" className="form-label">Nombre</label>
@@ -72,6 +74,7 @@ const ContactForm = () => {
               onChange={handleChange}
               className="form-input"
               required
+              aria-label="Nombre completo"
             />
           </div>
 
@@ -86,6 +89,7 @@ const ContactForm = () => {
               onChange={handleChange}
               className="form-input"
               required
+              aria-label="Correo electrónico"
             />
           </div>
 
@@ -100,6 +104,7 @@ const ContactForm = () => {
               className="form-input"
               rows={5}
               required
+              aria-label="Mensaje que deseas enviar"
             ></textarea>
           </div>
 
@@ -111,6 +116,7 @@ const ContactForm = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               disabled={isSending}
+              aria-label={isSending ? "Enviando mensaje..." : "Enviar mensaje"}
             >
               {isSending ? "Enviando..." : "Enviar Mensaje"}
             </motion.button>
