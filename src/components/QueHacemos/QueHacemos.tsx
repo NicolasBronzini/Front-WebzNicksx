@@ -9,6 +9,7 @@ import { FaSitemap } from 'react-icons/fa';
 import { AiOutlineCloudServer } from 'react-icons/ai';
 import { GrTechnology } from 'react-icons/gr';
 import { TbLamp2 } from 'react-icons/tb';
+
 const QueHacemos = () => {
     return (
         <>
@@ -17,7 +18,6 @@ const QueHacemos = () => {
                 <div className='TitleProceso'>
                     <TbLamp2 id="LampIcon" />
                     <h2>Nuestro proceso de desarrollo</h2>
-
                 </div>
                 <div className='ContainerTiposProcesos'>
                     <div className='Procesos'>
@@ -57,10 +57,9 @@ const QueHacemos = () => {
                         </div>
                     </div>
                 </div>
-
             </div>
         </>
-    )
+    );
 }
 
-export default QueHacemos
+export default QueHacemos;

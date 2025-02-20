@@ -1,18 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es"> <!-- Cambia a "es" si tu audiencia es hispanohablante -->
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="./src//assets/img/logos/LogoIco.png?v=2" />
-
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WebzNicks</title>
+  
+  <!-- 🔹 TÍTULO (Importante para SEO) -->
+  <title>WebzNicks | Desarrollo Web, E-commerce y Aplicaciones</title>
+
+  <!-- 🔹 DESCRIPCIÓN (Lo que aparecerá en Google) -->
+  <meta name="description" content="Somos WebzNicks, una software factory que crea Landing Pages, E-commerce y Aplicaciones Web. 🚀 Potencia tu negocio con soluciones digitales a medida." />
+
+  <!-- 🔹 PALABRAS CLAVE (Google ya no las usa tanto, pero ayudan en Bing, Yahoo, etc.) -->
+  <meta name="keywords" content="desarrollo web, software factory, landing page, e-commerce, aplicaciones web, diseño web, programadores" />
+
+  <!-- 🔹 AUTOR -->
+  <meta name="author" content="WebzNicks" />
+
+  <!-- 🔹 CONTROL DE INDEXACIÓN (Para que Google indexe la web) -->
+  <meta name="robots" content="index, follow" />
+
+  <!-- 🔹 ÍCONO DE LA PÁGINA -->
+  <link rel="icon" type="image/png" href="./src/assets/img/logos/LogoIco.png?v=2" />
+
+  <!-- 🔹 OPEN GRAPH (Para mejorar la vista en redes sociales como Facebook, LinkedIn, etc.) -->
+  <meta property="og:title" content="WebzNicks | Software Factory 🚀" />
+  <meta property="og:description" content="Especialistas en desarrollo web, e-commerce y software a medida. ¡Lleva tu negocio al siguiente nivel!" />
+  <meta property="og:image" content="https://tu-dominio.com/logo.png" />
+  <meta property="og:url" content="https://tu-dominio.com" />
+  <meta property="og:type" content="website" />
+
+  <!-- 🔹 TWITTER CARD (Para mejorar la vista en Twitter/X) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="WebzNicks | Software Factory" />
+  <meta name="twitter:description" content="Desarrollo de sitios web, landing pages, e-commerce y aplicaciones web personalizadas." />
+  <meta name="twitter:image" content="https://tu-dominio.com/logo.png" />
+
+  <!-- 🔹 SCRIPTS PARA GOOGLE ANALYTICS Y SEO -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=TU_GOOGLE_ANALYTICS_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'TU_GOOGLE_ANALYTICS_ID');
+  </script>
+
 </head>
 
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>
-
 </html>

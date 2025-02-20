@@ -1,49 +1,55 @@
 import NavBar from "../../NavBar/NavBar";
 import './header.css';
 // @ts-ignore
-import iconPC from "../../../assets/img/pc.svg"
+import iconPC from "../../../assets/img/pc.svg";
 // @ts-ignore
-import IconAvion from "../../../assets/img/AvionPapel.svg"
+import IconAvion from "../../../assets/img/AvionPapel.svg";
 import { FaRegPaperPlane } from 'react-icons/fa';
 
 const Header = () => {
-    
-    const handleScroll = () => {
-        // Redirige al formulario dentro de la página
-        const element = document.getElementById("formulario"); // ID del contenedor al que hacer scroll
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" }); // Scroll suave hacia el contenedor
-        }
-      };
-    return (
-        <>
-            <div className="ContainerHeader">
-                <NavBar />
-                <div className="containerHome">
-                    <div className="ContainerTextHome">
-                        <h1>Impulsa tu negocio con una <span className="text-blue-500">web profesional</span> 🚀</h1>
-                        <p className="text-lg text-gray-300 mb-6">
-                            En <span className="font-semibold text-white">WebzNick</span>, creamos 
-                            <span className="text-blue-400"> páginas web, Ecommerce, integraciones con APIs y servicios </span> 
-                            diseñadas a la medida de tu negocio para que vendas más y crezcas rápido.
-                        </p>
+  const handleScroll = () => {
+    // Redirige al formulario dentro de la página
+    const element = document.getElementById("formulario"); // ID del contenedor al que hacer scroll
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" }); // Scroll suave hacia el contenedor
+    }
+  };
 
-                        {/* Lista de Beneficios */}
-                        <ul className="ListaBeneficios">
-                            <li>✅ <span className="text-white font-semibold">Diseño moderno y funcional</span></li>
-                            <li>✅ <span className="text-white font-semibold">Optimizado para crecer tu negocio</span></li>
-                            <li>✅ <span className="text-white font-semibold">Ajustado a tu presupuesto y necesidades</span></li>
-                        </ul>
+  return (
+    <header className="ContainerHeader">
+      <NavBar />
+      <section className="containerHome">
+        <div className="ContainerTextHome">
+          <h1>
+            Impulsa tu negocio con una <span className="text-blue-500">web profesional</span> 🚀
+          </h1>
+          <p className="text-lg text-gray-300 mb-6">
+            En <span className="font-semibold text-white">WebzNick</span>, creamos
+            <span className="text-blue-400"> páginas web, Ecommerce, integraciones con APIs y servicios </span>
+            diseñadas a la medida de tu negocio para que vendas más y crezcas rápido.
+          </p>
 
-                        <button className="BtnContact" onClick={handleScroll} > Hablemos Ahora <FaRegPaperPlane /></button>
-                    </div>
-                    <div className="ContainerImgHome">
-                        <img src={iconPC} alt="Developer Tools" />
-                    </div>
-                </div>
-            </div>
-        </>
-    )
-}
+          {/* Lista de Beneficios */}
+          <ul className="ListaBeneficios">
+            <li>✅ <span className="text-white font-semibold">Diseño moderno y funcional</span></li>
+            <li>✅ <span className="text-white font-semibold">Optimizado para hacer crecer tu negocio</span></li>
+            <li>✅ <span className="text-white font-semibold">Ajustado a tu presupuesto y necesidades</span></li>
+          </ul>
 
-export default Header
+          <button 
+            className="BtnContact" 
+            onClick={handleScroll} 
+            aria-label="Ir al formulario de contacto">
+              Hablemos Ahora <FaRegPaperPlane />
+          </button>
+        </div>
+
+        <div className="ContainerImgHome">
+          <img src={iconPC} alt="Herramientas para desarrolladores, tecnología web" />
+        </div>
+      </section>
+    </header>
+  );
+};
+
+export default Header;
