@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Poltawski+Nowy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-}
-
-body {
-    font-family: 'Poltawski Nowy', serif;
+@layer base {
+  body {
+    @apply bg-dark text-light font-sans antialiased;
+  }
 }

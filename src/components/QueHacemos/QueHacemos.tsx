@@ -1,65 +1,84 @@
-import "./QueHacemos.css";
 import { ImStatsDots } from 'react-icons/im';
 import { HiUserGroup } from 'react-icons/hi';
 import { MdOutlineEmojiObjects, MdOutlineError } from 'react-icons/md';
 import { BiTask } from 'react-icons/bi';
 import { BsPencilFill, BsMenuButtonWideFill, BsCodeSlash } from 'react-icons/bs';
 import { CgWebsite } from 'react-icons/cg';
-import { FaSitemap } from 'react-icons/fa';
+import { FaSitemap, FaNetworkWired } from 'react-icons/fa';
 import { AiOutlineCloudServer } from 'react-icons/ai';
-import { GrTechnology } from 'react-icons/gr';
 import { TbLamp2 } from 'react-icons/tb';
+import { motion } from 'framer-motion';
+
 const QueHacemos = () => {
+    const processes = [
+        {
+            title: "Idea",
+            description: "En esta etapa se define el problema o la necesidad a resolver, se establecen los objetivos y se crea un plan de trabajo detallado.",
+            items: [
+                { icon: <ImStatsDots />, text: "Análisis de mercado y tendencias." },
+                { icon: <HiUserGroup />, text: "Identificación de oportunidades." },
+                { icon: <MdOutlineEmojiObjects />, text: "Definición de objetivos claros." },
+                { icon: <BiTask />, text: "Creación de un plan de trabajo." },
+            ]
+        },
+        {
+            title: "Diseño",
+            description: "Aquí se da forma visual al proyecto. Se trabaja en la identidad visual, la arquitectura de la información y la estructura de navegación.",
+            items: [
+                { icon: <BsPencilFill />, text: "Creación de la identidad visual." },
+                { icon: <CgWebsite />, text: "Diseño de interfaces (UI/UX)." },
+                { icon: <FaSitemap />, text: "Arquitectura de la información." },
+                { icon: <BsMenuButtonWideFill />, text: "Estructura de navegación." },
+            ]
+        },
+        {
+            title: "Desarrollo",
+            description: "En esta fase se construye el sitio web o la aplicación móvil utilizando las mejores tecnologías, frameworks y herramientas de desarrollo.",
+            items: [
+                { icon: <BsCodeSlash />, text: "Desarrollo del front-end." },
+                { icon: <AiOutlineCloudServer />, text: "Desarrollo del back-end." },
+                { icon: <FaNetworkWired />, text: "Integración de tecnologías." },
+                { icon: <MdOutlineError />, text: "Pruebas y corrección de errores." },
+            ]
+        }
+    ];
+
     return (
-        <>
-            <div className="Difuminado"></div>
-            <div className='ContainerProceso'>
-                <div className='TitleProceso'>
-                    <TbLamp2 id="LampIcon" />
-                    <h2>Nuestro proceso de desarrollo</h2>
-
-                </div>
-                <div className='ContainerTiposProcesos'>
-                    <div className='Procesos'>
-                        <div className="ContainerTextProceso">
-                            <h3>Idea</h3>
-                            <p>En esta etapa se define el problema o la necesidad a resolver, se establecen los objetivos y se crea un plan de trabajo detallado. Algunas de las actividades clave incluyen:</p>
-                            <ul>
-                                <li><ImStatsDots className="IconParrafo" />Análisis de mercado y tendencias.</li>
-                                <li><HiUserGroup className="IconParrafo" />Identificación de oportunidades y necesidades del cliente.</li>
-                                <li><MdOutlineEmojiObjects className="IconParrafo" />Definición de objetivos y metas claras.</li>
-                                <li><BiTask className="IconParrafo" />Creación de un plan de trabajo y cronograma.</li>
-                            </ul>
-                        </div>
+        <section className="py-20 bg-dark text-white relative overflow-hidden">
+            <div className="container mx-auto px-4 relative z-10">
+                <div className="text-center mb-16">
+                    <div className="inline-flex items-center justify-center p-3 bg-primary/20 rounded-full mb-4">
+                        <TbLamp2 className="text-3xl text-primary" />
                     </div>
-                    <div className='Procesos'>
-                        <div className="ContainerTextProceso">
-                            <h3>Diseño</h3>
-                            <p>Aquí se da forma visual al proyecto. Se trabaja en la identidad visual, la arquitectura de la información y la estructura de navegación para asegurar una experiencia de usuario excepcional. Las principales actividades en esta fase son:</p>
-                            <ul>
-                                <li><BsPencilFill className="IconParrafo" />Creación de la identidad visual.</li>
-                                <li><CgWebsite className="IconParrafo" />Diseño de interfaces (UI) y experiencia de usuario (UX).</li>
-                                <li><FaSitemap className="IconParrafo" />Definición de la arquitectura de la información.</li>
-                                <li><BsMenuButtonWideFill className="IconParrafo" />Establecimiento de la estructura de navegación.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className='Procesos'>
-                        <div className="ContainerTextProceso">
-                            <h3>Desarrollo</h3>
-                            <p>En esta fase se construye el sitio web o la aplicación móvil utilizando las mejores tecnologías, frameworks y herramientas de desarrollo. Las actividades incluyen:</p>
-                            <ul>
-                                <li><BsCodeSlash className="IconParrafo" />Desarrollo del front-end (interfaz de usuario).</li>
-                                <li><AiOutlineCloudServer className="IconParrafo" />Desarrollo del back-end (funcionalidad y servidores).</li>
-                                <li><GrTechnology className="IconParrafo" />Integración de las diferentes tecnologías y herramientas.</li>
-                                <li><MdOutlineError className="IconParrafo" />Pruebas exhaustivas de funcionalidad y corrección de errores.</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <h2 className="text-3xl md:text-5xl font-bold mb-4">Nuestro proceso de desarrollo</h2>
+                    <div className="h-1 w-24 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
                 </div>
 
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {processes.map((process, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.2 }}
+                            viewport={{ once: true }}
+                            className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 group"
+                        >
+                            <h3 className="text-2xl font-bold mb-4 text-primary group-hover:text-white transition-colors">{process.title}</h3>
+                            <p className="text-gray-400 mb-6 text-sm leading-relaxed">{process.description}</p>
+                            <ul className="space-y-3">
+                                {process.items.map((item, idx) => (
+                                    <li key={idx} className="flex items-center text-gray-300 text-sm">
+                                        <span className="text-secondary mr-3 text-lg">{item.icon}</span>
+                                        {item.text}
+                                    </li>
+                                ))}
+                            </ul>
+                        </motion.div>
+                    ))}
+                </div>
             </div>
-        </>
+        </section>
     )
 }
 
