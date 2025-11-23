@@ -149,8 +149,8 @@ const Newdevs = () => {
                                 <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={4} className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-white placeholder-gray-500 resize-none" placeholder="Cuéntanos por qué quieres unirte..."></textarea>
                             </div>
                             
-                            <button type="submit" className="w-full py-4 bg-white text-dark font-bold rounded-xl hover:bg-gray-100 transition-colors shadow-lg hover:shadow-white/20 transform hover:-translate-y-1 flex items-center justify-center gap-2">
-                                Enviar Postulación <FaPaperPlane />
+                            <button type="submit" disabled={isSending} className="w-full py-4 bg-white text-dark font-bold rounded-xl hover:bg-gray-100 transition-colors shadow-lg hover:shadow-white/20 transform hover:-translate-y-1 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
+                                {isSending ? "Enviando..." : "Enviar Postulación"} <FaPaperPlane />
                             </button>
                         </form>
                     </motion.div>
