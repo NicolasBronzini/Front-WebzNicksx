@@ -14,7 +14,7 @@ const Newdevs = () => {
         portfolio: "",
         message: ""
     });
-
+    console.log(formData);
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
