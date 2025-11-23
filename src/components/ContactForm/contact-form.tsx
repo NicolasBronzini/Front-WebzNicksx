@@ -1,10 +1,9 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaPaperPlane } from "react-icons/fa";
 import emailjs from '@emailjs/browser';
 
 const ContactForm = () => {
-  const form = useRef<HTMLFormElement>(null);
   const [isSending, setIsSending] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -115,9 +114,10 @@ const ContactForm = () => {
 
               <button
                 type="submit"
-                className="w-full py-4 bg-gradient-to-r from-primary to-blue-600 text-white font-bold rounded-xl shadow-lg hover:shadow-primary/50 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2"
+                disabled={isSending}
+                className="w-full py-4 bg-gradient-to-r from-primary to-blue-600 text-white font-bold rounded-xl shadow-lg hover:shadow-primary/50 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Enviar Mensaje <FaPaperPlane className="text-sm" />
+                {isSending ? "Enviando..." : "Enviar Mensaje"} <FaPaperPlane className="text-sm" />
               </button>
             </form>
           </motion.div>

@@ -160,9 +160,10 @@ const ProyectForm = ({ initialProjectType }: ProyectFormProps) => {
 
               <button
                 type="submit"
-                className="w-full py-4 bg-gradient-to-r from-primary to-blue-600 text-white font-bold rounded-xl shadow-lg hover:shadow-primary/50 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2"
+                disabled={isSending}
+                className="w-full py-4 bg-gradient-to-r from-primary to-blue-600 text-white font-bold rounded-xl shadow-lg hover:shadow-primary/50 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Enviar Proyecto <FaRocket className="text-sm" />
+                {isSending ? "Enviando..." : "Enviar Proyecto"} <FaRocket className="text-sm" />
               </button>
             </form>
           </motion.div>
