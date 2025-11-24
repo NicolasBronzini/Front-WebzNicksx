@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Home Page -->
+  <url>
+    <loc>https://webznick.com/</loc>
+    <lastmod>2025-11-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webznick.com/es/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webznick.com/en/" />
+  </url>
+  
+  <!-- Presenta tu Proyecto -->
+  <url>
+    <loc>https://webznick.com/presenta-tu-proyecto</loc>
+    <lastmod>2025-11-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webznick.com/es/presenta-tu-proyecto" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webznick.com/en/present-your-project" />
+  </url>
+  
+  <!-- Trabaja con Nosotros -->
+  <url>
+    <loc>https://webznick.com/trabaja-con-nosotros</loc>
+    <lastmod>2025-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webznick.com/es/trabaja-con-nosotros" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webznick.com/en/work-with-us" />
+  </url>
+  
+  <!-- Contact -->
+  <url>
+    <loc>https://webznick.com/contact</loc>
+    <lastmod>2025-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webznick.com/es/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webznick.com/en/contact" />
+  </url>
+  
+</urlset>

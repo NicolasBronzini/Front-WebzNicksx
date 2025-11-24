@@ -5,9 +5,10 @@ import { FaCode, FaLaptopCode, FaUserAstronaut, FaPaperPlane } from 'react-icons
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { useI18n } from '../../i18n';
+import SEO from '../../components/SEO/SEO';
 
 const Newdevs = () => {
-    const { t } = useI18n();
+    const { t, language } = useI18n();
     const [isSending, setIsSending] = useState(false);
     const [formData, setFormData] = useState({
         name: "",
@@ -25,7 +26,6 @@ const Newdevs = () => {
         e.preventDefault();
         setIsSending(true);
 
-        // REPLACE THESE WITH YOUR ACTUAL EMAILJS CREDENTIALS
         const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
         const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
         const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
@@ -76,8 +76,42 @@ const Newdevs = () => {
         }
     ];
 
+    const seoTitle = language === 'es'
+        ? 'Trabaja con Nosotros | Desarrolladores Web - WebzNick'
+        : 'Work with Us | Web Developers - WebzNick';
+    
+    const seoDescription = language === 'es'
+        ? 'Únete a nuestro equipo de desarrollo web. Proyectos innovadores, tecnología de punta, crecimiento profesional. React, TypeScript, Node.js.'
+        : 'Join our web development team. Innovative projects, cutting-edge technology, professional growth. React, TypeScript, Node.js.';
+    
+    const jobPostingSchema = {
+        "@context": "https://schema.org",
+        "@type": "JobPosting",
+        "title": "Web Developer",
+        "description": seoDescription,
+        "hiringOrganization": {
+            "@type": "Organization",
+            "name": "WebzNick",
+            "sameAs": "https://webznick.com"
+        },
+        "jobLocation": {
+            "@type": "Place",
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "AR"
+            }
+        },
+        "employmentType": "FULL_TIME"
+    };
+
     return (
         <div className="bg-dark min-h-screen flex flex-col">
+            <SEO 
+                title={seoTitle}
+                description={seoDescription}
+                canonicalUrl="https://webznick.com/trabaja-con-nosotros"
+                structuredData={jobPostingSchema}
+            />
             <NavBar />
             
             <main className="flex-grow pt-32 pb-20 px-4">
