@@ -2,8 +2,10 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaPaperPlane } from "react-icons/fa";
 import emailjs from '@emailjs/browser';
+import { useI18n } from "../../i18n";
 
 const ContactForm = () => {
+  const { t } = useI18n();
   const [isSending, setIsSending] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -39,12 +41,12 @@ const ContactForm = () => {
     emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
       .then((result) => {
           console.log(result.text);
-          alert("¡Mensaje enviado con éxito!");
+          alert(t.contactForm.alerts.success);
           setFormData({ name: "", email: "", message: "" });
           setIsSending(false);
       }, (error) => {
           console.log(error.text);
-          alert("Hubo un error al enviar el mensaje. Por favor intenta nuevamente.");
+          alert(t.contactForm.alerts.error);
           setIsSending(false);
       });
   };
@@ -57,8 +59,8 @@ const ContactForm = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">¿Tienes dudas? <span className="text-primary">¡Hablemos!</span></h2>
-            <p className="text-gray-400">Cuéntanos sobre tu proyecto y te ayudaremos a hacerlo realidad.</p>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">{t.contactForm.title} <span className="text-primary">{t.contactForm.titleHighlight}</span></h2>
+            <p className="text-gray-400">{t.contactForm.description}</p>
           </div>
 
           <motion.div 
@@ -71,7 +73,7 @@ const ContactForm = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium text-gray-300 ml-1">Nombre</label>
+                  <label htmlFor="name" className="text-sm font-medium text-gray-300 ml-1">{t.contactForm.labels.name}</label>
                   <input
                     type="text"
                     id="name"
@@ -79,12 +81,12 @@ const ContactForm = () => {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-white placeholder-gray-500 transition-all"
-                    placeholder="Tu nombre"
+                    placeholder={t.contactForm.placeholders.name}
                     required
                   />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium text-gray-300 ml-1">Correo Electrónico</label>
+                  <label htmlFor="email" className="text-sm font-medium text-gray-300 ml-1">{t.contactForm.labels.email}</label>
                   <input
                     type="email"
                     id="email"
@@ -92,14 +94,14 @@ const ContactForm = () => {
                     value={formData.email}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-white placeholder-gray-500 transition-all"
-                    placeholder="tucorreo@ejemplo.com"
+                    placeholder={t.contactForm.placeholders.email}
                     required
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium text-gray-300 ml-1">Mensaje</label>
+                <label htmlFor="message" className="text-sm font-medium text-gray-300 ml-1">{t.contactForm.labels.message}</label>
                 <textarea
                   id="message"
                   name="message"
@@ -107,7 +109,7 @@ const ContactForm = () => {
                   onChange={handleChange}
                   className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-white placeholder-gray-500 transition-all resize-none"
                   rows={5}
-                  placeholder="¿En qué podemos ayudarte?"
+                  placeholder={t.contactForm.placeholders.message}
                   required
                 ></textarea>
               </div>
@@ -117,7 +119,7 @@ const ContactForm = () => {
                 disabled={isSending}
                 className="w-full py-4 bg-gradient-to-r from-primary to-blue-600 text-white font-bold rounded-xl shadow-lg hover:shadow-primary/50 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isSending ? "Enviando..." : "Enviar Mensaje"} <FaPaperPlane className="text-sm" />
+                {isSending ? t.contactForm.buttonSending : t.contactForm.button} <FaPaperPlane className="text-sm" />
               </button>
             </form>
           </motion.div>
@@ -128,5 +130,3 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
-
-

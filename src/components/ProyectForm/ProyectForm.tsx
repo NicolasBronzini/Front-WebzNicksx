@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaRocket } from "react-icons/fa";
 import emailjs from '@emailjs/browser';
+import { useI18n } from "../../i18n";
 
 interface ProyectFormProps {
   initialProjectType?: string;
 }
 
 const ProyectForm = ({ initialProjectType }: ProyectFormProps) => {
+  const { t } = useI18n();
   const [isSending, setIsSending] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -60,12 +62,12 @@ const ProyectForm = ({ initialProjectType }: ProyectFormProps) => {
     emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
       .then((result) => {
           console.log(result.text);
-          alert("¡Proyecto enviado con éxito! Nos pondremos en contacto pronto.");
+          alert(t.proyectForm.alerts.success);
           setFormData({ ...formData, message: "", name: "", email: "" }); // Keep project type maybe?
           setIsSending(false);
       }, (error) => {
           console.log(error.text);
-          alert("Hubo un error al enviar el proyecto. Por favor intenta nuevamente.");
+          alert(t.proyectForm.alerts.error);
           setIsSending(false);
       });
   };
@@ -78,8 +80,8 @@ const ProyectForm = ({ initialProjectType }: ProyectFormProps) => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">¡Cuéntanos sobre tu <span className="text-primary">proyecto</span>!</h2>
-            <p className="text-gray-400">Completa el formulario y nos pondremos en contacto contigo lo antes posible.</p>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">{t.proyectForm.title} <span className="text-primary">{t.proyectForm.titleHighlight}</span>{t.proyectForm.titleEnd}</h2>
+            <p className="text-gray-400">{t.proyectForm.description}</p>
           </div>
 
           <motion.div 
@@ -92,7 +94,7 @@ const ProyectForm = ({ initialProjectType }: ProyectFormProps) => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium text-gray-300 ml-1">Nombre</label>
+                  <label htmlFor="name" className="text-sm font-medium text-gray-300 ml-1">{t.proyectForm.labels.name}</label>
                   <input
                     type="text"
                     id="name"
@@ -100,12 +102,12 @@ const ProyectForm = ({ initialProjectType }: ProyectFormProps) => {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-white placeholder-gray-500 transition-all"
-                    placeholder="Tu nombre"
+                    placeholder={t.proyectForm.placeholders.name}
                     required
                   />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium text-gray-300 ml-1">Correo Electrónico</label>
+                  <label htmlFor="email" className="text-sm font-medium text-gray-300 ml-1">{t.proyectForm.labels.email}</label>
                   <input
                     type="email"
                     id="email"
@@ -113,7 +115,7 @@ const ProyectForm = ({ initialProjectType }: ProyectFormProps) => {
                     value={formData.email}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-white placeholder-gray-500 transition-all"
-                    placeholder="tucorreo@ejemplo.com"
+                    placeholder={t.proyectForm.placeholders.email}
                     required
                   />
                 </div>
@@ -121,7 +123,7 @@ const ProyectForm = ({ initialProjectType }: ProyectFormProps) => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label htmlFor="projectType" className="text-sm font-medium text-gray-300 ml-1">Tipo de Proyecto</label>
+                  <label htmlFor="projectType" className="text-sm font-medium text-gray-300 ml-1">{t.proyectForm.labels.projectType}</label>
                   <select
                     id="projectType"
                     name="projectType"
@@ -130,22 +132,22 @@ const ProyectForm = ({ initialProjectType }: ProyectFormProps) => {
                     className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-white placeholder-gray-500 transition-all appearance-none"
                     required
                   >
-                    <option value="" disabled className="bg-slate-800 text-gray-500">Seleccionar...</option>
-                    <option value="Landing Page" className="bg-slate-800">Landing Page</option>
-                    <option value="E-commerce Básico" className="bg-slate-800">E-commerce Básico</option>
-                    <option value="E-commerce Avanzado" className="bg-slate-800">E-commerce Avanzado</option>
-                    <option value="Página Corporativa" className="bg-slate-800">Página Corporativa</option>
-                    <option value="Aplicación Web" className="bg-slate-800">Aplicación Web</option>
-                    <option value="API Básica" className="bg-slate-800">API Básica</option>
-                    <option value="API Avanzada" className="bg-slate-800">API Avanzada</option>
-                    <option value="Mantenimiento" className="bg-slate-800">Mantenimiento Mensual</option>
+                    <option value="" disabled className="bg-slate-800 text-gray-500">{t.proyectForm.placeholders.projectType}</option>
+                    <option value={t.proyectForm.projectTypes.landingPage} className="bg-slate-800">{t.proyectForm.projectTypes.landingPage}</option>
+                    <option value={t.proyectForm.projectTypes.ecommerceBasic} className="bg-slate-800">{t.proyectForm.projectTypes.ecommerceBasic}</option>
+                    <option value={t.proyectForm.projectTypes.ecommerceAdvanced} className="bg-slate-800">{t.proyectForm.projectTypes.ecommerceAdvanced}</option>
+                    <option value={t.proyectForm.projectTypes.corporatePage} className="bg-slate-800">{t.proyectForm.projectTypes.corporatePage}</option>
+                    <option value={t.proyectForm.projectTypes.webApp} className="bg-slate-800">{t.proyectForm.projectTypes.webApp}</option>
+                    <option value={t.proyectForm.projectTypes.apiBasic} className="bg-slate-800">{t.proyectForm.projectTypes.apiBasic}</option>
+                    <option value={t.proyectForm.projectTypes.apiAdvanced} className="bg-slate-800">{t.proyectForm.projectTypes.apiAdvanced}</option>
+                    <option value={t.proyectForm.projectTypes.maintenance} className="bg-slate-800">{t.proyectForm.projectTypes.maintenance}</option>
                   </select>
                 </div>
                 {/* Could add budget or timeline here if needed, keeping it simple for now matching original structure mostly */}
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium text-gray-300 ml-1">Descripción del Proyecto</label>
+                <label htmlFor="message" className="text-sm font-medium text-gray-300 ml-1">{t.proyectForm.labels.description}</label>
                 <textarea
                   id="message"
                   name="message"
@@ -153,7 +155,7 @@ const ProyectForm = ({ initialProjectType }: ProyectFormProps) => {
                   onChange={handleChange}
                   className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-white placeholder-gray-500 transition-all resize-none"
                   rows={5}
-                  placeholder="Cuéntanos los detalles..."
+                  placeholder={t.proyectForm.placeholders.description}
                   required
                 ></textarea>
               </div>
@@ -163,7 +165,7 @@ const ProyectForm = ({ initialProjectType }: ProyectFormProps) => {
                 disabled={isSending}
                 className="w-full py-4 bg-gradient-to-r from-primary to-blue-600 text-white font-bold rounded-xl shadow-lg hover:shadow-primary/50 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isSending ? "Enviando..." : "Enviar Proyecto"} <FaRocket className="text-sm" />
+                {isSending ? t.proyectForm.buttonSending : t.proyectForm.button} <FaRocket className="text-sm" />
               </button>
             </form>
           </motion.div>
@@ -174,5 +176,3 @@ const ProyectForm = ({ initialProjectType }: ProyectFormProps) => {
 };
 
 export default ProyectForm;
-
-

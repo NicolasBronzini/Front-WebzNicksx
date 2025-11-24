@@ -3,11 +3,13 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import logo from "../../assets/img/logos/logo.png";
+import { useI18n } from "../../i18n";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { t } = useI18n();
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -20,9 +22,9 @@ function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Inicio", path: "/" },
-    { name: "Presenta tu proyecto", path: "/presenta-tu-proyecto" },
-    { name: "Trabaja con nosotros", path: "/trabaja-con-nosotros" },
+    { name: t.nav.home, path: "/" },
+    { name: t.nav.presentProject, path: "/presenta-tu-proyecto" },
+    { name: t.nav.workWithUs, path: "/trabaja-con-nosotros" },
   ];
 
   return (
@@ -55,7 +57,7 @@ function Navbar() {
             to="/contact"
             className="px-6 py-2 bg-primary text-white rounded-full font-medium hover:bg-blue-600 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
           >
-            Contáctanos
+            {t.nav.contact}
           </Link>
         </div>
 
@@ -95,7 +97,7 @@ function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className="px-6 py-2 bg-primary text-white rounded-full font-medium text-center hover:bg-blue-600 transition-all"
               >
-                Contáctanos
+                {t.nav.contact}
               </Link>
             </div>
           </motion.div>
