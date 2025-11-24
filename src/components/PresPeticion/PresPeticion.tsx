@@ -3,23 +3,26 @@ import { IoMdMegaphone } from 'react-icons/io';
 import { HiUserGroup } from 'react-icons/hi';
 import { BsFillGearFill } from 'react-icons/bs';
 import { motion } from 'framer-motion';
+import { useI18n } from '../../i18n';
 
 const PresPeticion = () => {
+    const { t } = useI18n();
+    
     const features = [
         {
             icon: <IoMdMegaphone />,
-            title: "Comunicación efectiva",
-            description: "Mantenemos una comunicación clara y constante para asegurar que estés informado y satisfecho con el progreso del proyecto."
+            title: t.presPeticion.features.communication.title,
+            description: t.presPeticion.features.communication.description
         },
         {
             icon: <BsFillGearFill />,
-            title: "Compromiso con la calidad",
-            description: "Ofrecemos soluciones personalizadas de alta calidad para garantizar la satisfacción del cliente y el éxito del proyecto."
+            title: t.presPeticion.features.quality.title,
+            description: t.presPeticion.features.quality.description
         },
         {
             icon: <HiUserGroup />,
-            title: "Seriedad y profesionalismo",
-            description: "Nos comprometemos a cumplir con los plazos acordados y garantizar la confidencialidad y seguridad de la información."
+            title: t.presPeticion.features.professionalism.title,
+            description: t.presPeticion.features.professionalism.description
         }
     ];
 
@@ -35,11 +38,11 @@ const PresPeticion = () => {
                         viewport={{ once: true }}
                         className="lg:w-1/2"
                     >
-                        <h1 className="text-4xl md:text-5xl font-bold mb-6">Presenta tu <span className="text-primary">proyecto</span></h1>
+                        <h1 className="text-4xl md:text-5xl font-bold mb-6">{t.presPeticion.title} <span className="text-primary">{t.presPeticion.titleHighlight}</span></h1>
                         <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-                            ¿Tienes una idea para un proyecto web? Cuéntanos sobre él y nosotros te ayudaremos a hacerlo realidad. Somos expertos en desarrollo web y podemos ofrecerte soluciones personalizadas para tus necesidades.
+                            {t.presPeticion.description1}
                             <br /><br />
-                            En WebzNicks, nos aseguramos de estar contigo en cada paso del camino. Desde el diseño inicial hasta la implementación final, te guiaremos a través de todo el proceso.
+                            {t.presPeticion.description2}
                         </p>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

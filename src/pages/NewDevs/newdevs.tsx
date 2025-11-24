@@ -4,8 +4,10 @@ import { motion } from 'framer-motion';
 import { FaCode, FaLaptopCode, FaUserAstronaut, FaPaperPlane } from 'react-icons/fa';
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
+import { useI18n } from '../../i18n';
 
 const Newdevs = () => {
+    const { t } = useI18n();
     const [isSending, setIsSending] = useState(false);
     const [formData, setFormData] = useState({
         name: "",
@@ -14,7 +16,7 @@ const Newdevs = () => {
         portfolio: "",
         message: ""
     });
-    console.log(formData);
+    
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
@@ -46,12 +48,12 @@ const Newdevs = () => {
         emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
             .then((result) => {
                 console.log(result.text);
-                alert("¡Postulación enviada! Te contactaremos pronto para pedirte tu CV.");
+                alert(t.newDevs.alerts.success);
                 setFormData({ name: "", email: "", linkedin: "", portfolio: "", message: "" });
                 setIsSending(false);
             }, (error) => {
                 console.log(error.text);
-                alert("Hubo un error al enviar la postulación. Por favor intenta nuevamente.");
+                alert(t.newDevs.alerts.error);
                 setIsSending(false);
             });
     };
@@ -59,18 +61,18 @@ const Newdevs = () => {
     const benefits = [
         {
             icon: <FaCode />,
-            title: "Tecnología de Punta",
-            description: "Trabajamos con las últimas tecnologías y frameworks del mercado."
+            title: t.newDevs.benefits.technology.title,
+            description: t.newDevs.benefits.technology.description
         },
         {
             icon: <FaLaptopCode />,
-            title: "Proyectos Desafiantes",
-            description: "Participa en proyectos innovadores que pondrán a prueba tus habilidades."
+            title: t.newDevs.benefits.projects.title,
+            description: t.newDevs.benefits.projects.description
         },
         {
             icon: <FaUserAstronaut />,
-            title: "Crecimiento Profesional",
-            description: "Ambiente colaborativo donde el aprendizaje continuo es nuestra prioridad."
+            title: t.newDevs.benefits.growth.title,
+            description: t.newDevs.benefits.growth.description
         }
     ];
 
@@ -86,10 +88,9 @@ const Newdevs = () => {
                         transition={{ duration: 0.8 }}
                         className="text-center mb-16"
                     >
-                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">Trabaja con <span className="text-primary">Nosotros</span></h1>
+                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">{t.newDevs.title} <span className="text-primary">{t.newDevs.titleHighlight}</span></h1>
                         <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-                            Estamos buscando talento apasionado por la tecnología y el desarrollo web. 
-                            Si te gusta innovar y crear soluciones impactantes, ¡te queremos en nuestro equipo!
+                            {t.newDevs.description}
                         </p>
                     </motion.div>
 
@@ -117,40 +118,40 @@ const Newdevs = () => {
                         viewport={{ once: true }}
                         className="max-w-3xl mx-auto bg-gradient-to-r from-primary/10 to-secondary/10 rounded-3xl p-8 md:p-12 border border-white/10"
                     >
-                        <h2 className="text-3xl font-bold text-white mb-6 text-center">¿Listo para el siguiente nivel?</h2>
+                        <h2 className="text-3xl font-bold text-white mb-6 text-center">{t.newDevs.formTitle}</h2>
                         <p className="text-gray-300 mb-8 text-center">
-                            Completa el formulario y se abrirá tu cliente de correo. <br/>
-                            <span className="text-primary font-bold">¡No olvides adjuntar tu CV!</span>
+                            {t.newDevs.formDescription} <br/>
+                            <span className="text-primary font-bold">{t.newDevs.formDescriptionHighlight}</span>
                         </p>
                         
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
-                                    <label htmlFor="name" className="text-sm font-medium text-gray-300 ml-1">Nombre</label>
-                                    <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-white placeholder-gray-500" placeholder="Tu nombre" />
+                                    <label htmlFor="name" className="text-sm font-medium text-gray-300 ml-1">{t.newDevs.labels.name}</label>
+                                    <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-white placeholder-gray-500" placeholder={t.newDevs.placeholders.name} />
                                 </div>
                                 <div className="space-y-2">
-                                    <label htmlFor="email" className="text-sm font-medium text-gray-300 ml-1">Correo</label>
-                                    <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-white placeholder-gray-500" placeholder="tucorreo@ejemplo.com" />
+                                    <label htmlFor="email" className="text-sm font-medium text-gray-300 ml-1">{t.newDevs.labels.email}</label>
+                                    <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-white placeholder-gray-500" placeholder={t.newDevs.placeholders.email} />
                                 </div>
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
-                                    <label htmlFor="linkedin" className="text-sm font-medium text-gray-300 ml-1">LinkedIn</label>
-                                    <input type="url" id="linkedin" name="linkedin" value={formData.linkedin} onChange={handleChange} className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-white placeholder-gray-500" placeholder="URL de tu perfil" />
+                                    <label htmlFor="linkedin" className="text-sm font-medium text-gray-300 ml-1">{t.newDevs.labels.linkedin}</label>
+                                    <input type="url" id="linkedin" name="linkedin" value={formData.linkedin} onChange={handleChange} className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-white placeholder-gray-500" placeholder={t.newDevs.placeholders.linkedin} />
                                 </div>
                                 <div className="space-y-2">
-                                    <label htmlFor="portfolio" className="text-sm font-medium text-gray-300 ml-1">Portafolio</label>
-                                    <input type="url" id="portfolio" name="portfolio" value={formData.portfolio} onChange={handleChange} className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-white placeholder-gray-500" placeholder="URL de tu portafolio" />
+                                    <label htmlFor="portfolio" className="text-sm font-medium text-gray-300 ml-1">{t.newDevs.labels.portfolio}</label>
+                                    <input type="url" id="portfolio" name="portfolio" value={formData.portfolio} onChange={handleChange} className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-white placeholder-gray-500" placeholder={t.newDevs.placeholders.portfolio} />
                                 </div>
                             </div>
                             <div className="space-y-2">
-                                <label htmlFor="message" className="text-sm font-medium text-gray-300 ml-1">Mensaje</label>
-                                <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={4} className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-white placeholder-gray-500 resize-none" placeholder="Cuéntanos por qué quieres unirte..."></textarea>
+                                <label htmlFor="message" className="text-sm font-medium text-gray-300 ml-1">{t.newDevs.labels.message}</label>
+                                <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={4} className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-white placeholder-gray-500 resize-none" placeholder={t.newDevs.placeholders.message}></textarea>
                             </div>
                             
                             <button type="submit" disabled={isSending} className="w-full py-4 bg-white text-dark font-bold rounded-xl hover:bg-gray-100 transition-colors shadow-lg hover:shadow-white/20 transform hover:-translate-y-1 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
-                                {isSending ? "Enviando..." : "Enviar Postulación"} <FaPaperPlane />
+                                {isSending ? t.newDevs.buttonSending : t.newDevs.button} <FaPaperPlane />
                             </button>
                         </form>
                     </motion.div>

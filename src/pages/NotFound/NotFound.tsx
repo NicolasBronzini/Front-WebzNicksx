@@ -1,9 +1,11 @@
 import ImgNotFound from '../../assets/img/NotFound.png';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useI18n } from '../../i18n';
 
 const NotFound = () => {
-    //TEst de codigo
+    const { t } = useI18n();
+    
     return (
         <div className="min-h-screen bg-dark flex items-center justify-center p-4">
             <div className="container mx-auto max-w-4xl text-center">
@@ -22,15 +24,13 @@ const NotFound = () => {
                     transition={{ duration: 0.5, delay: 0.2 }}
                 >
                     <p className="text-gray-300 text-lg md:text-xl mb-8 leading-relaxed max-w-2xl mx-auto">
-                        ¡Oh no! Parece que el enlace que estás buscando está tan perdido como una aguja en un pajar. 
-                        Mejor vuelve a la página de inicio y comienza de nuevo tu búsqueda. 
-                        ¡No te preocupes, no te juzgaremos por perderte en nuestro sitio web! ;)
+                        {t.notFound.message}
                     </p>
                     <Link 
                         to="/" 
                         className="inline-block px-8 py-3 bg-primary text-white font-bold rounded-full hover:bg-blue-600 transition-colors shadow-lg hover:shadow-primary/30 transform hover:-translate-y-1"
                     >
-                        Volver al Inicio
+                        {t.notFound.button}
                     </Link>
                 </motion.div>
             </div>

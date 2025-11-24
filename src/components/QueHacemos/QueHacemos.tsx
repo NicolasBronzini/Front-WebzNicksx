@@ -8,37 +8,40 @@ import { FaSitemap, FaNetworkWired } from 'react-icons/fa';
 import { AiOutlineCloudServer } from 'react-icons/ai';
 import { TbLamp2 } from 'react-icons/tb';
 import { motion } from 'framer-motion';
+import { useI18n } from '../../i18n';
 
 const QueHacemos = () => {
+    const { t } = useI18n();
+    
     const processes = [
         {
-            title: "Idea",
-            description: "En esta etapa se define el problema o la necesidad a resolver, se establecen los objetivos y se crea un plan de trabajo detallado.",
+            title: t.queHacemos.processes.idea.title,
+            description: t.queHacemos.processes.idea.description,
             items: [
-                { icon: <ImStatsDots />, text: "Análisis de mercado y tendencias." },
-                { icon: <HiUserGroup />, text: "Identificación de oportunidades." },
-                { icon: <MdOutlineEmojiObjects />, text: "Definición de objetivos claros." },
-                { icon: <BiTask />, text: "Creación de un plan de trabajo." },
+                { icon: <ImStatsDots />, text: t.queHacemos.processes.idea.items[0] },
+                { icon: <HiUserGroup />, text: t.queHacemos.processes.idea.items[1] },
+                { icon: <MdOutlineEmojiObjects />, text: t.queHacemos.processes.idea.items[2] },
+                { icon: <BiTask />, text: t.queHacemos.processes.idea.items[3] },
             ]
         },
         {
-            title: "Diseño",
-            description: "Aquí se da forma visual al proyecto. Se trabaja en la identidad visual, la arquitectura de la información y la estructura de navegación.",
+            title: t.queHacemos.processes.design.title,
+            description: t.queHacemos.processes.design.description,
             items: [
-                { icon: <BsPencilFill />, text: "Creación de la identidad visual." },
-                { icon: <CgWebsite />, text: "Diseño de interfaces (UI/UX)." },
-                { icon: <FaSitemap />, text: "Arquitectura de la información." },
-                { icon: <BsMenuButtonWideFill />, text: "Estructura de navegación." },
+                { icon: <BsPencilFill />, text: t.queHacemos.processes.design.items[0] },
+                { icon: <CgWebsite />, text: t.queHacemos.processes.design.items[1] },
+                { icon: <FaSitemap />, text: t.queHacemos.processes.design.items[2] },
+                { icon: <BsMenuButtonWideFill />, text: t.queHacemos.processes.design.items[3] },
             ]
         },
         {
-            title: "Desarrollo",
-            description: "En esta fase se construye el sitio web o la aplicación móvil utilizando las mejores tecnologías, frameworks y herramientas de desarrollo.",
+            title: t.queHacemos.processes.development.title,
+            description: t.queHacemos.processes.development.description,
             items: [
-                { icon: <BsCodeSlash />, text: "Desarrollo del front-end." },
-                { icon: <AiOutlineCloudServer />, text: "Desarrollo del back-end." },
-                { icon: <FaNetworkWired />, text: "Integración de tecnologías." },
-                { icon: <MdOutlineError />, text: "Pruebas y corrección de errores." },
+                { icon: <BsCodeSlash />, text: t.queHacemos.processes.development.items[0] },
+                { icon: <AiOutlineCloudServer />, text: t.queHacemos.processes.development.items[1] },
+                { icon: <FaNetworkWired />, text: t.queHacemos.processes.development.items[2] },
+                { icon: <MdOutlineError />, text: t.queHacemos.processes.development.items[3] },
             ]
         }
     ];
@@ -50,7 +53,7 @@ const QueHacemos = () => {
                     <div className="inline-flex items-center justify-center p-3 bg-primary/20 rounded-full mb-4">
                         <TbLamp2 className="text-3xl text-primary" />
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4">Nuestro proceso de desarrollo</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold mb-4">{t.queHacemos.title}</h2>
                     <div className="h-1 w-24 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
                 </div>
 
