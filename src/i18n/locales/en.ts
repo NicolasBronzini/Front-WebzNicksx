@@ -260,7 +260,9 @@ export const en: Translations = {
 
   // NotFound
   notFound: {
+    title: "Oops! Page Not Found",
     message: "Oh no! It seems the link you're looking for is as lost as a needle in a haystack. Better go back to the home page and start your search again. Don't worry, we won't judge you for getting lost on our website! ;)",
     button: "Back to Home",
+    contactSupport: "Contact Support",
   },
 };

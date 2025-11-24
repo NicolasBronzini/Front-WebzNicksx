@@ -258,8 +258,10 @@ export const es = {
 
   // NotFound
   notFound: {
+    title: "¡Oops! Página no encontrada",
     message: "¡Oh no! Parece que el enlace que estás buscando está tan perdido como una aguja en un pajar. Mejor vuelve a la página de inicio y comienza de nuevo tu búsqueda. ¡No te preocupes, no te juzgaremos por perderte en nuestro sitio web! ;)",
     button: "Volver al Inicio",
+    contactSupport: "Contactar Soporte",
   },
 };
 
