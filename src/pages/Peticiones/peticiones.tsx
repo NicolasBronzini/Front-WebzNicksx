@@ -6,6 +6,7 @@ import ProyectForm from '../../components/ProyectForm/ProyectForm'
 import TablePrice from '../../components/TablePrice/TablePrice'
 import SEO from '../../components/SEO/SEO'
 import { useI18n } from '../../i18n'
+import TrustBadges from '../../components/TrustBadges/TrustBadges'
 
 const Peticiones = () => {
     const { language } = useI18n();
@@ -37,6 +38,7 @@ const Peticiones = () => {
             />
             <Navbar/>
             <PresPeticion />
+            <TrustBadges />
             <TablePrice onSelectProject={handleProjectSelect} />
             <div ref={formRef}>
                 <ProyectForm initialProjectType={selectedProject} />
