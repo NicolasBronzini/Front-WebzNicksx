@@ -263,6 +263,105 @@ export const es = {
     button: "Volver al Inicio",
     contactSupport: "Contactar Soporte",
   },
+
+  // Testimonials
+  testimonials: {
+    title: "Lo que dicen nuestros clientes",
+    subtitle: "Testimonios reales de proyectos exitosos",
+    items: [
+      {
+        name: "María G.",
+        project: "E-commerce",
+        rating: 5,
+        text: "Excelente trabajo, muy profesional y rápido. El sitio quedó mejor de lo que esperaba.",
+        avatar: "MG"
+      },
+      {
+        name: "Carlos R.",
+        project: "Landing Page",
+        rating: 5,
+        text: "Muy satisfecho con el resultado. Buena comunicación durante todo el proyecto.",
+        avatar: "CR"
+      },
+      {
+        name: "Ana L.",
+        project: "Aplicación Web",
+        rating: 5,
+        text: "Cumplieron con los tiempos y el presupuesto. Recomendado 100%.",
+        avatar: "AL"
+      }
+    ]
+  },
+
+  // Trust Badges
+  trustBadges: {
+    title: "Nuestras Garantías",
+    subtitle: "Tu tranquilidad es nuestra prioridad",
+    badges: {
+      satisfaction: {
+        title: "Garantía de Satisfacción 100%",
+        description: "No pagas hasta estar completamente satisfecho"
+      },
+      revisions: {
+        title: "Revisiones Ilimitadas",
+        description: "Ajustamos hasta que quede perfecto"
+      },
+      support: {
+        title: "Soporte Post-Lanzamiento",
+        description: "30 días de soporte técnico gratis"
+      },
+      cleanCode: {
+        title: "Código Limpio",
+        description: "Documentado y fácil de mantener"
+      },
+      onTime: {
+        title: "Entrega a Tiempo",
+        description: "Cumplimos con los plazos acordados"
+      },
+      fairPrices: {
+        title: "Precios Justos",
+        description: "Sin costos ocultos ni sorpresas"
+      }
+    }
+  },
+
+  // Tech Stack
+  techStack: {
+    title: "Tecnologías que Dominamos",
+    subtitle: "Trabajamos con las mejores herramientas del mercado"
+  },
+
+  // Why Choose Us
+  whyChooseUs: {
+    title: "¿Por qué elegirnos?",
+    subtitle: "Razones que nos hacen diferentes",
+    reasons: {
+      modernTech: {
+        title: "Tecnología Moderna",
+        description: "Utilizamos React, TypeScript y Node.js para crear aplicaciones rápidas, escalables y mantenibles."
+      },
+      fastResponse: {
+        title: "Respuesta Rápida",
+        description: "Cotización en 24 horas y comunicación constante durante todo el proyecto."
+      },
+      transparentPricing: {
+        title: "Precios Transparentes",
+        description: "Sin costos ocultos. Presupuesto claro y detallado desde el inicio."
+      },
+      support: {
+        title: "Soporte Incluido",
+        description: "30 días de soporte técnico gratuito después del lanzamiento."
+      },
+      quality: {
+        title: "Código de Calidad",
+        description: "Código limpio, documentado y siguiendo las mejores prácticas de la industria."
+      },
+      guarantee: {
+        title: "Garantía Total",
+        description: "Revisiones ilimitadas hasta alcanzar el 100% de tu satisfacción."
+      }
+    }
+  },
 };
 
 export type Translations = typeof es;

@@ -4,6 +4,9 @@ import Footer from "../../components/base/footer/Footer"
 import Header from "../../components/base/header/Header"
 import SEO from "../../components/SEO/SEO"
 import { useI18n } from "../../i18n"
+import Testimonials from "../../components/Testimonials/Testimonials"
+import TechStack from "../../components/TechStack/TechStack"
+import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs"
 
 const Home = () => {
     const { language } = useI18n();
@@ -43,7 +46,9 @@ const Home = () => {
             />
             <Header />
             <QueHacemos />
-            {/* <Portafolio /> */}
+            <Testimonials />
+            <WhyChooseUs />
+            <TechStack />
             <ContactForm/>
             <Footer/>
         </>

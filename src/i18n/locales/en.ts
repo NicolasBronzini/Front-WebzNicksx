@@ -265,4 +265,103 @@ export const en: Translations = {
     button: "Back to Home",
     contactSupport: "Contact Support",
   },
+
+  // Testimonials
+  testimonials: {
+    title: "What Our Clients Say",
+    subtitle: "Real testimonials from successful projects",
+    items: [
+      {
+        name: "Maria G.",
+        project: "E-commerce",
+        rating: 5,
+        text: "Excellent work, very professional and fast. The site turned out better than expected.",
+        avatar: "MG"
+      },
+      {
+        name: "Carlos R.",
+        project: "Landing Page",
+        rating: 5,
+        text: "Very satisfied with the result. Good communication throughout the project.",
+        avatar: "CR"
+      },
+      {
+        name: "Ana L.",
+        project: "Web Application",
+        rating: 5,
+        text: "They met deadlines and budget. 100% recommended.",
+        avatar: "AL"
+      }
+    ]
+  },
+
+  // Trust Badges
+  trustBadges: {
+    title: "Our Guarantees",
+    subtitle: "Your peace of mind is our priority",
+    badges: {
+      satisfaction: {
+        title: "100% Satisfaction Guarantee",
+        description: "You don't pay until you're completely satisfied"
+      },
+      revisions: {
+        title: "Unlimited Revisions",
+        description: "We adjust until it's perfect"
+      },
+      support: {
+        title: "Post-Launch Support",
+        description: "30 days of free technical support"
+      },
+      cleanCode: {
+        title: "Clean Code",
+        description: "Documented and easy to maintain"
+      },
+      onTime: {
+        title: "On-Time Delivery",
+        description: "We meet agreed deadlines"
+      },
+      fairPrices: {
+        title: "Fair Prices",
+        description: "No hidden costs or surprises"
+      }
+    }
+  },
+
+  // Tech Stack
+  techStack: {
+    title: "Technologies We Master",
+    subtitle: "We work with the best tools on the market"
+  },
+
+  // Why Choose Us
+  whyChooseUs: {
+    title: "Why Choose Us?",
+    subtitle: "Reasons that make us different",
+    reasons: {
+      modernTech: {
+        title: "Modern Technology",
+        description: "We use React, TypeScript, and Node.js to create fast, scalable, and maintainable applications."
+      },
+      fastResponse: {
+        title: "Fast Response",
+        description: "Quote in 24 hours and constant communication throughout the project."
+      },
+      transparentPricing: {
+        title: "Transparent Pricing",
+        description: "No hidden costs. Clear and detailed budget from the start."
+      },
+      support: {
+        title: "Support Included",
+        description: "30 days of free technical support after launch."
+      },
+      quality: {
+        title: "Quality Code",
+        description: "Clean, documented code following industry best practices."
+      },
+      guarantee: {
+        title: "Total Guarantee",
+        description: "Unlimited revisions until you reach 100% satisfaction."
+      }
+    }
+  },
 };
