@@ -33,6 +33,7 @@ const Newdevs = () => {
         const templateParams = {
             from_name: formData.name,
             from_email: formData.email,
+            subject: `Solicitud de Empleo - ${formData.name}`,
             linkedin: formData.linkedin,
             portfolio: formData.portfolio,
             message: `

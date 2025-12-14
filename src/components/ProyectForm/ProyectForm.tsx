@@ -47,6 +47,7 @@ const ProyectForm = ({ initialProjectType }: ProyectFormProps) => {
     const templateParams = {
       from_name: formData.name,
       from_email: formData.email,
+      subject: `Petición de Proyecto - ${formData.name}`,
       project_type: formData.projectType,
       message: `
         Nombre: ${formData.name}

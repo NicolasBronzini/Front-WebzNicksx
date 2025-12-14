@@ -30,6 +30,7 @@ const ContactForm = () => {
     const templateParams = {
       from_name: formData.name,
       from_email: formData.email,
+      subject: `Contacto General - ${formData.name}`,
       message: `
         Nombre: ${formData.name}
         Correo: ${formData.email}
