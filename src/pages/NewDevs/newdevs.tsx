@@ -6,10 +6,13 @@ import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { useI18n } from '../../i18n';
 import SEO from '../../components/SEO/SEO';
+import FileDropZone from '../../components/FileDropZone/FileDropZone';
 
 const Newdevs = () => {
     const { t, language } = useI18n();
     const [isSending, setIsSending] = useState(false);
+    const [cvFile, setCvFile] = useState<File | null>(null);
+    const [resetFileDropZone, setResetFileDropZone] = useState(0);
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -22,7 +25,7 @@ const Newdevs = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSending(true);
 
@@ -30,32 +33,53 @@ const Newdevs = () => {
         const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
         const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-        const templateParams = {
-            from_name: formData.name,
-            from_email: formData.email,
-            linkedin: formData.linkedin,
-            portfolio: formData.portfolio,
-            message: `
-                Nombre: ${formData.name}
-                Correo: ${formData.email}
-                LinkedIn: ${formData.linkedin}
-                Portafolio: ${formData.portfolio}
-                Mensaje: ${formData.message}
-            `,
-            to_email: 'nicolasbronzini7@gmail.com'
-        };
+        try {
+            const templateParams: any = {
+                name: formData.name,
+                email: formData.email,
+                linkedin: formData.linkedin,
+                portfolio: formData.portfolio,
+                message: `
+                    Nombre: ${formData.name}
+                    Correo: ${formData.email}
+                    LinkedIn: ${formData.linkedin}
+                    Portafolio: ${formData.portfolio}
+                    Mensaje: ${formData.message}
+                    ${cvFile ? `\nCV adjunto: ${cvFile.name}` : ''}
+                `,
+                to_email: 'nicolasbronzini7@gmail.com'
+            };
 
-        emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
-            .then((result) => {
-                console.log(result.text);
-                alert(t.newDevs.alerts.success);
-                setFormData({ name: "", email: "", linkedin: "", portfolio: "", message: "" });
-                setIsSending(false);
-            }, (error) => {
-                console.log(error.text);
-                alert(t.newDevs.alerts.error);
-                setIsSending(false);
-            });
+            // If there's a CV file, convert to base64 and add as attachment
+            if (cvFile) {
+                const reader = new FileReader();
+                const fileData = await new Promise<string>((resolve, reject) => {
+                    reader.onload = () => resolve(reader.result as string);
+                    reader.onerror = reject;
+                    reader.readAsDataURL(cvFile);
+                });
+
+                // EmailJS expects attachments in this specific format
+                templateParams.my_file = {
+                    name: cvFile.name,
+                    data: fileData.split(',')[1]
+                };
+            }
+
+            const result = await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+            console.log(result.text);
+            alert(t.newDevs.alerts.success);
+
+            // Reset form and file dropzone
+            setFormData({ name: "", email: "", linkedin: "", portfolio: "", message: "" });
+            setCvFile(null);
+            setResetFileDropZone(prev => prev + 1); // Trigger reset
+            setIsSending(false);
+        } catch (error) {
+            console.log(error);
+            alert(t.newDevs.alerts.error);
+            setIsSending(false);
+        }
     };
 
     const benefits = [
@@ -183,7 +207,16 @@ const Newdevs = () => {
                                 <label htmlFor="message" className="text-sm font-medium text-gray-300 ml-1">{t.newDevs.labels.message}</label>
                                 <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={4} className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-white placeholder-gray-500 resize-none" placeholder={t.newDevs.placeholders.message}></textarea>
                             </div>
-                            
+
+                            <FileDropZone
+                                onFileSelect={setCvFile}
+                                acceptedTypes={['.pdf', '.doc', '.docx']}
+                                maxSizeMB={5}
+                                label={t.newDevs.labels.cv || "CV / Resume"}
+                                helperText={t.newDevs.helperText.cv || "PDF, DOC or DOCX (Max 5MB)"}
+                                resetTrigger={resetFileDropZone}
+                            />
+
                             <button type="submit" disabled={isSending} className="w-full py-4 bg-white text-dark font-bold rounded-xl hover:bg-gray-100 transition-colors shadow-lg hover:shadow-white/20 transform hover:-translate-y-1 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
                                 {isSending ? t.newDevs.buttonSending : t.newDevs.button} <FaPaperPlane />
                             </button>

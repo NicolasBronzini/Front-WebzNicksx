@@ -242,6 +242,7 @@ export const en: Translations = {
       linkedin: "LinkedIn",
       portfolio: "Portfolio",
       message: "Message",
+      cv: "CV / Resume",
     },
     placeholders: {
       name: "Your name",
@@ -249,6 +250,9 @@ export const en: Translations = {
       linkedin: "Your profile URL",
       portfolio: "Your portfolio URL",
       message: "Tell us why you want to join...",
+    },
+    helperText: {
+      cv: "PDF, DOC or DOCX (Max 5MB)",
     },
     button: "Send Application",
     buttonSending: "Sending...",
