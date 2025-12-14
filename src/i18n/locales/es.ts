@@ -240,6 +240,7 @@ export const es = {
       linkedin: "LinkedIn",
       portfolio: "Portafolio",
       message: "Mensaje",
+      cv: "CV / Currículum",
     },
     placeholders: {
       name: "Tu nombre",
@@ -247,6 +248,9 @@ export const es = {
       linkedin: "URL de tu perfil",
       portfolio: "URL de tu portafolio",
       message: "Cuéntanos por qué quieres unirte...",
+    },
+    helperText: {
+      cv: "PDF, DOC o DOCX (Máx. 5MB)",
     },
     button: "Enviar Postulación",
     buttonSending: "Enviando...",
