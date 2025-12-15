@@ -36,7 +36,7 @@ const ContactForm = () => {
         Correo: ${formData.email}
         Mensaje: ${formData.message}
       `,
-      to_email: 'nicolasbronzini7@gmail.com'
+      to_email: 'webznick@gmail.com'
     };
 
     emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
