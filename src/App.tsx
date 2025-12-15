@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { HelmetProvider } from 'react-helmet-async';
+import { SpeedInsights } from "@vercel/speed-insights/react"
 import Home from "./pages/Home/Home"
 import NotFound from "./pages/NotFound/NotFound"
 import Peticiones from './pages/Peticiones/peticiones';
@@ -20,6 +21,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </Router>
+        <SpeedInsights />
       </I18nProvider>
     </HelmetProvider>
   );
