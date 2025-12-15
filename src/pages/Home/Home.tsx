@@ -27,7 +27,7 @@ const Home = () => {
         "contactPoint": {
             "@type": "ContactPoint",
             "contactType": "Customer Service",
-            "email": "nicolasbronzini7@gmail.com"
+            "email": "webznick@gmail.com"
         },
         "offers": {
             "@type": "AggregateOffer",
