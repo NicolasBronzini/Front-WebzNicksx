@@ -47,7 +47,7 @@ const ProyectForm = ({ initialProjectType }: ProyectFormProps) => {
       from_email: formData.email,
       project_type: formData.projectType,
       message: `Nombre: ${formData.name}\nCorreo: ${formData.email}\nTipo de Proyecto: ${formData.projectType}\nPresupuesto: ${formData.budget || 'No especificado'}\nPlazo: ${formData.timeline || 'No especificado'}\nDetalles: ${formData.message}`,
-      to_email: 'nicolasbronzini7@gmail.com',
+      to_email: 'webznick@gmail.com',
     };
 
     emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
