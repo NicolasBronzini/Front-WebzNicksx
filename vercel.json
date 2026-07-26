@@ -1,4 +1,12 @@
 {
+    "redirects": [
+        {
+            "source": "/(.*)",
+            "has": [{ "type": "host", "value": "webznick.app" }],
+            "destination": "https://www.webznick.app/$1",
+            "permanent": true
+        }
+    ],
     "rewrites":[
         {
             "source":"/(.*)",

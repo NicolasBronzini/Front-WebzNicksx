@@ -8,66 +8,78 @@ import { FaSitemap, FaNetworkWired } from 'react-icons/fa';
 import { AiOutlineCloudServer } from 'react-icons/ai';
 import { TbLamp2 } from 'react-icons/tb';
 import { motion } from 'framer-motion';
-import { useI18n } from '../../i18n';
 
 const QueHacemos = () => {
-    const { t } = useI18n();
-    
     const processes = [
         {
-            title: t.queHacemos.processes.idea.title,
-            description: t.queHacemos.processes.idea.description,
+            step: "01",
+            title: "Idea",
+            description: "Definimos el problema, establecemos objetivos y creamos un plan de trabajo detallado adaptado a tu negocio.",
             items: [
-                { icon: <ImStatsDots />, text: t.queHacemos.processes.idea.items[0] },
-                { icon: <HiUserGroup />, text: t.queHacemos.processes.idea.items[1] },
-                { icon: <MdOutlineEmojiObjects />, text: t.queHacemos.processes.idea.items[2] },
-                { icon: <BiTask />, text: t.queHacemos.processes.idea.items[3] },
+                { icon: <ImStatsDots />, text: "Análisis de mercado y tendencias." },
+                { icon: <HiUserGroup />, text: "Identificación de oportunidades." },
+                { icon: <MdOutlineEmojiObjects />, text: "Definición de objetivos claros." },
+                { icon: <BiTask />, text: "Creación de un plan de trabajo." },
             ]
         },
         {
-            title: t.queHacemos.processes.design.title,
-            description: t.queHacemos.processes.design.description,
+            step: "02",
+            title: "Diseño",
+            description: "Le damos forma visual al proyecto trabajando en identidad visual, arquitectura de la información y navegación.",
             items: [
-                { icon: <BsPencilFill />, text: t.queHacemos.processes.design.items[0] },
-                { icon: <CgWebsite />, text: t.queHacemos.processes.design.items[1] },
-                { icon: <FaSitemap />, text: t.queHacemos.processes.design.items[2] },
-                { icon: <BsMenuButtonWideFill />, text: t.queHacemos.processes.design.items[3] },
+                { icon: <BsPencilFill />, text: "Creación de la identidad visual." },
+                { icon: <CgWebsite />, text: "Diseño de interfaces (UI/UX)." },
+                { icon: <FaSitemap />, text: "Arquitectura de la información." },
+                { icon: <BsMenuButtonWideFill />, text: "Estructura de navegación." },
             ]
         },
         {
-            title: t.queHacemos.processes.development.title,
-            description: t.queHacemos.processes.development.description,
+            step: "03",
+            title: "Desarrollo",
+            description: "Construimos el sitio usando las mejores tecnologías y frameworks, garantizando calidad y rendimiento.",
             items: [
-                { icon: <BsCodeSlash />, text: t.queHacemos.processes.development.items[0] },
-                { icon: <AiOutlineCloudServer />, text: t.queHacemos.processes.development.items[1] },
-                { icon: <FaNetworkWired />, text: t.queHacemos.processes.development.items[2] },
-                { icon: <MdOutlineError />, text: t.queHacemos.processes.development.items[3] },
+                { icon: <BsCodeSlash />, text: "Desarrollo del front-end." },
+                { icon: <AiOutlineCloudServer />, text: "Desarrollo del back-end." },
+                { icon: <FaNetworkWired />, text: "Integración de tecnologías." },
+                { icon: <MdOutlineError />, text: "Pruebas y corrección de errores." },
             ]
         }
     ];
 
     return (
-        <section className="py-20 bg-dark text-white relative overflow-hidden">
+        <section className="py-24 bg-dark text-white relative overflow-hidden">
+            {/* Background decoration */}
+            <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 to-dark pointer-events-none" />
+
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-16">
                     <div className="inline-flex items-center justify-center p-3 bg-primary/20 rounded-full mb-4">
                         <TbLamp2 className="text-3xl text-primary" />
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4">{t.queHacemos.title}</h2>
-                    <div className="h-1 w-24 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+                    <h2 className="text-3xl md:text-5xl font-bold mb-4">Nuestro proceso de desarrollo</h2>
+                    <p className="text-gray-400 max-w-xl mx-auto">Trabajamos con una metodología probada para garantizar resultados profesionales en cada etapa.</p>
+                    <div className="h-1 w-24 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mt-4" />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                    {/* Connecting line (desktop) */}
+                    <div className="hidden md:block absolute top-12 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-primary/20 via-primary/50 to-primary/20 z-0" />
+
                     {processes.map((process, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.2 }}
                             viewport={{ once: true }}
-                            className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 group"
+                            className="relative bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 group"
                         >
-                            <h3 className="text-2xl font-bold mb-4 text-primary group-hover:text-white transition-colors">{process.title}</h3>
+                            {/* Step badge */}
+                            <div className="absolute -top-4 left-8 bg-gradient-to-r from-primary to-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                                Paso {process.step}
+                            </div>
+
+                            <h3 className="text-2xl font-bold mb-4 mt-2 text-primary group-hover:text-white transition-colors">{process.title}</h3>
                             <p className="text-gray-400 mb-6 text-sm leading-relaxed">{process.description}</p>
                             <ul className="space-y-3">
                                 {process.items.map((item, idx) => (
@@ -82,7 +94,7 @@ const QueHacemos = () => {
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
 
-export default QueHacemos
+export default QueHacemos;

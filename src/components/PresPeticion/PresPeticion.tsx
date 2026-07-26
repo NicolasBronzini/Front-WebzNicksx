@@ -1,53 +1,65 @@
-import ImgEquipo from '../../assets/img/trabajo-en-equipo.jpg';
 import { IoMdMegaphone } from 'react-icons/io';
 import { HiUserGroup } from 'react-icons/hi';
 import { BsFillGearFill } from 'react-icons/bs';
+import { FaCheckCircle, FaRocket, FaCode, FaMobileAlt, FaShoppingCart } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import { useI18n } from '../../i18n';
 
 const PresPeticion = () => {
-    const { t } = useI18n();
-    
     const features = [
         {
             icon: <IoMdMegaphone />,
-            title: t.presPeticion.features.communication.title,
-            description: t.presPeticion.features.communication.description
+            title: "Comunicación efectiva",
+            description: "Comunicación clara y constante en cada etapa del proyecto."
         },
         {
             icon: <BsFillGearFill />,
-            title: t.presPeticion.features.quality.title,
-            description: t.presPeticion.features.quality.description
+            title: "Compromiso con la calidad",
+            description: "Soluciones personalizadas de alta calidad para garantizar tu satisfacción."
         },
         {
             icon: <HiUserGroup />,
-            title: t.presPeticion.features.professionalism.title,
-            description: t.presPeticion.features.professionalism.description
+            title: "Seriedad y profesionalismo",
+            description: "Cumplimos plazos y garantizamos la confidencialidad de tu información."
         }
+    ];
+
+    const projectTypes = [
+        { icon: <FaCode />,         label: 'Web App',     color: 'text-blue-400' },
+        { icon: <FaShoppingCart />, label: 'E-commerce',  color: 'text-emerald-400' },
+        { icon: <FaMobileAlt />,    label: 'Landing',     color: 'text-purple-400' },
+        { icon: <FaRocket />,       label: 'API / SaaS',  color: 'text-orange-400' },
+    ];
+
+    const steps = [
+        'Recibimos tu idea',
+        'Analizamos requerimientos',
+        'Presentamos propuesta',
+        'Comenzamos a construir',
     ];
 
     return (
         <section className="py-20 bg-dark text-white overflow-hidden">
             <div className="container mx-auto px-4">
-                <div className="flex flex-col lg:flex-row items-center gap-12">
-                    
-                    <motion.div 
+                <div className="flex flex-col lg:flex-row items-center gap-16">
+
+                    {/* Left — texto */}
+                    <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
                         className="lg:w-1/2"
                     >
-                        <h1 className="text-4xl md:text-5xl font-bold mb-6">{t.presPeticion.title} <span className="text-primary">{t.presPeticion.titleHighlight}</span></h1>
+                        <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                            Presenta tu <span className="text-primary">proyecto</span>
+                        </h1>
                         <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-                            {t.presPeticion.description1}
-                            <br /><br />
-                            {t.presPeticion.description2}
+                            ¿Tenés una idea? Contanos sobre ella y la hacemos realidad. Somos expertos en desarrollo web y te acompañamos en cada paso del camino.
                         </p>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {features.map((feature, index) => (
-                                <motion.div 
+                                <motion.div
                                     key={index}
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
@@ -65,25 +77,71 @@ const PresPeticion = () => {
                         </div>
                     </motion.div>
 
-                    <motion.div 
+                    {/* Right — visual card */}
+                    <motion.div
                         initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
-                        className="lg:w-1/2 relative"
+                        className="lg:w-1/2 w-full"
                     >
-                        <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-700 group">
-                            <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-all duration-500 z-10"></div>
-                            <img src={ImgEquipo} alt="Trabajo en equipo" className="w-full h-auto transform group-hover:scale-105 transition-transform duration-700" />
+                        <div className="relative bg-slate-800/60 backdrop-blur-sm border border-slate-700 rounded-3xl p-8 shadow-2xl">
+
+                            {/* Header */}
+                            <div className="flex items-center gap-2 mb-6">
+                                <span className="w-3 h-3 rounded-full bg-red-500" />
+                                <span className="w-3 h-3 rounded-full bg-yellow-500" />
+                                <span className="w-3 h-3 rounded-full bg-green-500" />
+                                <span className="ml-3 text-xs text-gray-500 font-mono">nuevo-proyecto.md</span>
+                            </div>
+
+                            {/* Project types */}
+                            <p className="text-xs text-gray-500 uppercase tracking-widest mb-3 font-semibold">Tipo de proyecto</p>
+                            <div className="grid grid-cols-2 gap-3 mb-6">
+                                {projectTypes.map((pt, i) => (
+                                    <div key={i} className="flex items-center gap-3 bg-slate-900/60 rounded-xl px-4 py-3 border border-slate-700">
+                                        <span className={`text-lg ${pt.color}`}>{pt.icon}</span>
+                                        <span className="text-sm text-gray-300 font-medium">{pt.label}</span>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Steps */}
+                            <p className="text-xs text-gray-500 uppercase tracking-widest mb-3 font-semibold">Nuestro flujo</p>
+                            <ul className="space-y-2.5">
+                                {steps.map((step, i) => (
+                                    <motion.li
+                                        key={i}
+                                        initial={{ opacity: 0, x: 10 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        transition={{ duration: 0.4, delay: 0.4 + i * 0.1 }}
+                                        viewport={{ once: true }}
+                                        className="flex items-center gap-3 text-sm text-gray-300"
+                                    >
+                                        <FaCheckCircle className="text-secondary flex-shrink-0" />
+                                        {step}
+                                    </motion.li>
+                                ))}
+                            </ul>
+
+                            {/* CTA mini */}
+                            <div className="mt-6 pt-6 border-t border-slate-700 flex items-center justify-between">
+                                <span className="text-xs text-gray-500">¿Listo para empezar?</span>
+                                <span className="text-xs font-semibold text-primary flex items-center gap-1">
+                                    <FaRocket className="text-xs" /> Completá el formulario abajo
+                                </span>
+                            </div>
+
+                            {/* Decorative blob */}
+                            <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-secondary/10 rounded-full blur-3xl -z-10" />
+                            <div className="absolute -top-8 -left-8 w-48 h-48 bg-primary/10 rounded-full blur-3xl -z-10" />
                         </div>
-                        {/* Decorative blob */}
-                        <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-secondary/20 rounded-full blur-3xl -z-10"></div>
                     </motion.div>
 
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
 
-export default PresPeticion
+export default PresPeticion;
