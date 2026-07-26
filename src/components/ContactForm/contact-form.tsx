@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaPaperPlane, FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 import { ImSpinner2 } from "react-icons/im";
@@ -7,7 +7,6 @@ import emailjs from '@emailjs/browser';
 type Status = 'idle' | 'sending' | 'success' | 'error';
 
 const ContactForm = () => {
-  const form = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<Status>('idle');
   const [formData, setFormData] = useState({
     name: "",
