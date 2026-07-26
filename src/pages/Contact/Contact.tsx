@@ -9,8 +9,8 @@ const contactInfo = [
   {
     icon: <FaEnvelope />,
     title: 'Email',
-    value: 'nicolasbronzini7@gmail.com',
-    href: 'mailto:nicolasbronzini7@gmail.com',
+    value: 'webznick@gmail.com',
+    href: 'mailto:webznick@gmail.com',
   },
   {
     icon: <FaWhatsapp />,
