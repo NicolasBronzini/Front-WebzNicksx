@@ -16,7 +16,7 @@ const organizationJsonLd = {
   name: 'WebzNick',
   url: 'https://www.webznick.app',
   description: 'Desarrollo de páginas web, e-commerce, APIs e integraciones a medida.',
-  email: 'nicolasbronzini7@gmail.com',
+  email: 'webznick@gmail.com',
   knowsAbout: ['React', 'TypeScript', 'Node.js', 'Desarrollo web', 'E-commerce'],
 };
 

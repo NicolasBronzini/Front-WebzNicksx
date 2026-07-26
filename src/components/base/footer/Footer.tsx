@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import iconImage from '../../../assets/img/logos/logo.png';
-import { FaFacebookF, FaLinkedinIn, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 
 const Footer = () => {
@@ -21,15 +21,6 @@ const Footer = () => {
             </p>
             <div className="flex gap-4 mt-6">
               <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all duration-300"
-              >
-                <FaInstagram />
-              </a>
-              <a
                 href="https://www.linkedin.com/company/webznick"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -37,15 +28,6 @@ const Footer = () => {
                 className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all duration-300"
               >
                 <FaLinkedinIn />
-              </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all duration-300"
-              >
-                <FaFacebookF />
               </a>
               <a
                 href="https://wa.me"
@@ -88,10 +70,10 @@ const Footer = () => {
               <li className="flex items-start gap-3 text-sm text-gray-400">
                 <MdEmail className="text-primary text-lg mt-0.5 flex-shrink-0" />
                 <a
-                  href="mailto:nicolasbronzini7@gmail.com"
+                  href="mailto:webznick@gmail.com"
                   className="hover:text-primary transition-colors break-all"
                 >
-                  nicolasbronzini7@gmail.com
+                  webznick@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-3 text-sm text-gray-400">
