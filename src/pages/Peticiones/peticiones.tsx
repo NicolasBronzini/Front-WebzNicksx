@@ -4,12 +4,10 @@ import Navbar from '../../components/NavBar/NavBar'
 import PresPeticion from '../../components/PresPeticion/PresPeticion'
 import ProyectForm from '../../components/ProyectForm/ProyectForm'
 import TablePrice from '../../components/TablePrice/TablePrice'
-import SEO from '../../components/SEO/SEO'
-import { useI18n } from '../../i18n'
-import TrustBadges from '../../components/TrustBadges/TrustBadges'
+import Seo from '../../components/Seo'
+
 
 const Peticiones = () => {
-    const { language } = useI18n();
     const [selectedProject, setSelectedProject] = useState("");
     const formRef = useRef<HTMLDivElement>(null);
 
@@ -21,24 +19,14 @@ const Peticiones = () => {
         }
     };
 
-    const seoTitle = language === 'es'
-        ? 'Presenta tu Proyecto Web | Cotización Gratis en 24h - WebzNick'
-        : 'Present Your Web Project | Free Quote in 24h - WebzNick';
-    
-    const seoDescription = language === 'es'
-        ? '¿Tienes una idea? Te ayudamos a hacerla realidad. Landing pages desde $75, E-commerce desde $210. Cotización gratuita en 24 horas.'
-        : 'Have an idea? We help you make it real. Landing pages from $75, E-commerce from $210. Free quote in 24 hours.';
-
     return (
         <>
-            <SEO 
-                title={seoTitle}
-                description={seoDescription}
-                canonicalUrl="https://webznick.com/presenta-tu-proyecto"
+            <Seo
+                title="Presentá tu Proyecto"
+                description="Contanos sobre tu proyecto web, elegí el plan que se ajusta a tu presupuesto y recibí una propuesta a medida de WebzNick."
             />
             <Navbar/>
             <PresPeticion />
-            <TrustBadges />
             <TablePrice onSelectProject={handleProjectSelect} />
             <div ref={formRef}>
                 <ProyectForm initialProjectType={selectedProject} />

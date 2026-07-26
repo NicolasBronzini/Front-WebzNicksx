@@ -3,11 +3,8 @@ import { Link } from "react-router-dom";
 import { FaRegPaperPlane } from 'react-icons/fa';
 import iconPC from "../../../assets/img/pc.svg";
 import { motion } from "framer-motion";
-import { useI18n } from "../../../i18n";
 
 const Header = () => {
-    const { t } = useI18n();
-    
     return (
         <div className="relative min-h-screen bg-dark overflow-hidden">
             {/* Background Gradient */}
@@ -28,31 +25,33 @@ const Header = () => {
                     className="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0"
                 >
                     <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 text-white">
-                        {t.header.title} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">{t.header.titleHighlight}</span> 🚀
+                        Impulsa tu negocio con una <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">web profesional</span> 🚀
                     </h1>
                     <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
-                        {t.header.description}
+                        En <span className="font-semibold text-white">WebzNick</span>, creamos 
+                        <span className="text-primary font-medium"> páginas web, Ecommerce, integraciones con APIs y servicios </span> 
+                        diseñadas a la medida de tu negocio para que vendas más y crezcas rápido.
                     </p>
 
                     {/* Lista de Beneficios */}
                     <ul className="space-y-4 mb-10 text-left inline-block">
                         <li className="flex items-center text-gray-300">
                             <span className="mr-3 text-secondary text-xl">✅</span> 
-                            <span className="font-medium">{t.header.benefits.modern}</span>
+                            <span className="font-medium">Diseño moderno y funcional</span>
                         </li>
                         <li className="flex items-center text-gray-300">
                             <span className="mr-3 text-secondary text-xl">✅</span> 
-                            <span className="font-medium">{t.header.benefits.optimized}</span>
+                            <span className="font-medium">Optimizado para crecer tu negocio</span>
                         </li>
                         <li className="flex items-center text-gray-300">
                             <span className="mr-3 text-secondary text-xl">✅</span> 
-                            <span className="font-medium">{t.header.benefits.budget}</span>
+                            <span className="font-medium">Ajustado a tu presupuesto y necesidades</span>
                         </li>
                     </ul>
 
                     <div>
                         <Link to="/contact" className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary to-blue-600 text-white font-bold rounded-full shadow-lg hover:shadow-primary/50 transform hover:-translate-y-1 transition-all duration-300">
-                            {t.header.cta} <FaRegPaperPlane className="ml-2" />
+                            Hablemos Ahora <FaRegPaperPlane className="ml-2" />
                         </Link>
                     </div>
                 </motion.div>
