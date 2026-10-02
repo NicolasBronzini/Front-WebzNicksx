@@ -4,6 +4,7 @@ import ContactForm from '../../components/ContactForm/contact-form';
 import Seo from '../../components/Seo';
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaWhatsapp, FaClock } from 'react-icons/fa';
+import { WHATSAPP_NUMBER, WHATSAPP_URL } from '../../constants/contact';
 
 const contactInfo = [
   {
@@ -15,8 +16,8 @@ const contactInfo = [
   {
     icon: <FaWhatsapp />,
     title: 'WhatsApp',
-    value: 'Disponible para consultas',
-    href: 'https://wa.me',
+    value: WHATSAPP_NUMBER,
+    href: WHATSAPP_URL,
   },
   {
     icon: <FaClock />,

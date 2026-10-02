@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import iconImage from '../../../assets/img/logos/logo.png';
 import { FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
+import { WHATSAPP_NUMBER, WHATSAPP_URL } from '../../../constants/contact';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -30,7 +31,7 @@ const Footer = () => {
                 <FaLinkedinIn />
               </a>
               <a
-                href="https://wa.me"
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
@@ -78,7 +79,14 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-3 text-sm text-gray-400">
                 <FaWhatsapp className="text-secondary text-lg mt-0.5 flex-shrink-0" />
-                <span>Disponible para consultas</span>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-secondary transition-colors"
+                >
+                  {WHATSAPP_NUMBER}
+                </a>
               </li>
             </ul>
           </div>
